@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CalculatorForm
 {
-    public class StringMonitor
+    public class StateMonitor
     {
         public string expression;
 
@@ -26,6 +26,27 @@ namespace CalculatorForm
         public virtual void OnStringChanged(string str)
         {
             ExpressionChanged?.Invoke(str);
+        }
+
+
+        public bool clearEntry;
+
+        public event Action ClearEntryChanged;
+
+        public bool MonitoredClearEntry
+        {
+            get { return clearEntry; }
+            set
+            {
+                clearEntry = value;
+                // При изменении вызываем событие
+                OnClearEntryChanged();
+            }
+        }
+
+        public virtual void OnClearEntryChanged()
+        {
+            ClearEntryChanged?.Invoke();
         }
     }
 }

@@ -536,6 +536,7 @@
             this.button14.TabIndex = 5;
             this.button14.Text = "⌫";
             this.button14.UseVisualStyleBackColor = false;
+            this.button14.Click += new System.EventHandler(this.button14_Click);
             // 
             // button13
             // 
@@ -548,6 +549,7 @@
             this.button13.TabIndex = 4;
             this.button13.Text = "C";
             this.button13.UseVisualStyleBackColor = false;
+            this.button13.Click += new System.EventHandler(this.button13_Click);
             // 
             // button12
             // 
@@ -939,7 +941,7 @@
         private System.Windows.Forms.Button button18;
         private System.Windows.Forms.Button button19;
         private System.Windows.Forms.Button button14;
-        private System.Windows.Forms.Button button13;
+        public System.Windows.Forms.Button button13;
         private System.Windows.Forms.Button button12;
         private System.Windows.Forms.Button button11;
         private System.Windows.Forms.Button button10;
