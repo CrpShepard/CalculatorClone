@@ -38,7 +38,7 @@ namespace CalculatorForm
 
         static private bool IsFunction(string s)
         {
-            if (s != "=")
+            if (CalcMath.isFunc(s))
                 return true;
             return false;
         }
@@ -145,7 +145,7 @@ namespace CalculatorForm
                 if (IsOperator(s)) //Если оператор
                 {
                     if (s == "(") //Если символ - открывающая скобка
-                        operStack.Push(s); //Записываем её в стек
+                        operStack.Push(s); //Записываем ее в стек
                     else if (s == ")") //Если символ - закрывающая скобка
                     {
                         //Выписываем все операторы до открывающей скобки в строку
@@ -158,11 +158,6 @@ namespace CalculatorForm
                         }
                     }
 
-                    else if (CalcMath.isFunc(s)) // Если функция
-                    {
-
-                    }
-
                     else //Если любой другой оператор
                     {
                         if (operStack.Count > 0) //Если в стеке есть элементы
@@ -172,6 +167,11 @@ namespace CalculatorForm
                         operStack.Push(s); //Если стек пуст, или же приоритет оператора выше - добавляем операторов на вершину стека
 
                     }
+                }
+
+                if (IsFunction(s))
+                {
+
                 }
             }
 

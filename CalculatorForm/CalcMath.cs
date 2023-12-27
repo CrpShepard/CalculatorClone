@@ -22,7 +22,10 @@ namespace CalculatorForm
 
         static public bool isFunc(string s)
         {
-            return FuncNames.Contains(s);
+            if (FuncNames.Any(s.Contains))
+                return true;
+            return false;
+            //return FuncNames.Contains(s);
         }
 
         static public double Calculate(string s, double a)

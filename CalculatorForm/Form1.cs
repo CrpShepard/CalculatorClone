@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +15,10 @@ namespace CalculatorForm
     {
         StateMonitor stateMonitor = new StateMonitor();
 
+        public static ListBox listBoxGlobal { get; set; }
+
+        History historyForm = new History();
+
         public Form1()
         {
             InitializeComponent();
@@ -21,6 +26,9 @@ namespace CalculatorForm
             stateMonitor.ClearEntryChanged += HandleClearEntryChange;
 
             stateMonitor.MonitoredClearEntry = false;
+
+            listBoxGlobal = listBox1;
+            History.stateMonitor = stateMonitor;
         }
 
         //string oldExpression = string.Empty;
@@ -43,6 +51,60 @@ namespace CalculatorForm
                         stateMonitor.MonitoredString = stateMonitor.MonitoredString.Remove(str.Length - 3, 1);
                     }
                 }
+                if (CalcMath.FuncNames.Any(s => str.EndsWith(s)))
+                {
+                    string func = str.Split(' ')[str.Split(' ').Length - 1];
+                    str = str.Remove(str.Length - 1 - func.Length);
+
+                    if (str.Split(' ')[str.Split(' ').Length - 1] == ")")
+                    {
+                        int index = str.Length - 2;
+                        int parenthesisCount = 1;
+                        while (parenthesisCount > 0)
+                        {
+                            if (str[index] == '(')
+                                parenthesisCount--;
+                            else if (str[index] == ')')
+                                parenthesisCount++;
+                            index--;
+                        }
+                        index++;
+                        str = str.Insert(index, func) + " ";
+                        stateMonitor.MonitoredString = str;
+                    }
+                    else
+                    {
+                        int lastNumberIndex = str.LastIndexOfAny(new char[] { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' });
+                        if (lastNumberIndex != -1)
+                        {
+                            int index = lastNumberIndex;
+
+                            while (index > 0)
+                            {
+                                if (!Char.IsDigit(str[index]) && str[index] != '.')
+                                {
+                                    break;
+                                }
+                                index--;
+                            }
+
+                            // Вставляем "мат функцию(" перед последним числом и закрывающую скобку ")"
+                            str = str.Insert(index, func + "( ") + " ) ";
+                            stateMonitor.MonitoredString = str;
+                        }
+                    }
+                }
+                else if (str.EndsWith(".") && !Char.IsDigit(str[str.Length - 2]))
+                {
+                    str = str.Remove(str.Length - 2);
+                    int lastNumberIndex = str.LastIndexOfAny(new char[] { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' });
+                    if (lastNumberIndex != -1)
+                    {
+                        str = str.Insert(lastNumberIndex + 1, ".");
+                        stateMonitor.MonitoredString = str;
+                    }
+                }
+
                 else if (str[str.Length - 2] == ' ' && str[str.Length - 1] == ' ')
                     stateMonitor.MonitoredString = stateMonitor.MonitoredString.Remove(str.Length - 1);
                 else
@@ -145,11 +207,36 @@ namespace CalculatorForm
             stateMonitor.MonitoredString += "^ ";
         }
 
+        private void button41_Click(object sender, EventArgs e) // . дробь
+        {
+            stateMonitor.MonitoredString += ".";
+        }
+
         private void button40_Click(object sender, EventArgs e) // кнопка =
         {
             stateMonitor.MonitoredString += "=";
 
-            label2.Text = RPN.Calculate(stateMonitor.MonitoredString).ToString();
+            //label2.Text = RPN.Calculate(stateMonitor.MonitoredString).ToString();
+            label2.Text = Calculate.getResult(stateMonitor.MonitoredString.Remove(stateMonitor.MonitoredString.Length - 1)).ToString();
+
+            if (label4.Text.Contains("="))
+            {
+                foreach (var item in listBox1.Items)
+                {
+                    if (item.ToString()[0] == label4.Text[0])
+                    {
+                        listBox1.Items[listBox1.Items.IndexOf(item)] = label4.Text + label2.Text;
+                        listBoxGlobal = listBox1;
+                        return;
+                    }
+                }
+                listBox1.Items.Add(label4.Text + label2.Text);
+                listBoxGlobal = listBox1;
+            }
+            else
+            {
+                historyForm.updateHistory(stateMonitor.MonitoredString.Remove(stateMonitor.MonitoredString.Length - 1));
+            }
         }
 
         private void button13_Click(object sender, EventArgs e) // кнопка C | CE
@@ -176,5 +263,269 @@ namespace CalculatorForm
                 stateMonitor.MonitoredString += " ";
             }
         }
+
+        // кнопка журнала истории 
+        private void button1_Click(object sender, EventArgs e) // часы
+        {
+            historyForm.Show();
+        }
+
+        private void button5_Click(object sender, EventArgs e) // экспорт переменных
+        {
+            string filePath = "";
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.DefaultExt = "txt";
+            saveFileDialog.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
+            saveFileDialog.FilterIndex = 1;
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                filePath = saveFileDialog.FileName;
+            }
+            using (StreamWriter sw = new StreamWriter(filePath))
+            {
+                foreach (var item in listBox1.Items)
+                {
+                    sw.WriteLine(item.ToString());
+                }
+            }
+        }
+
+        private void button6_Click(object sender, EventArgs e) // импорт переменных
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Text Files (*.txt)|*.txt|All files (*.*)|*.*";
+            openFileDialog.FilterIndex = 1;
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                string filePath = openFileDialog.FileName;
+
+                listBox1.Items.Clear();
+
+                using (StreamReader sr = new StreamReader(filePath))
+                {
+                    string line;
+                    while ((line = sr.ReadLine()) != null)
+                    {
+                        listBox1.Items.Add(line);
+                    }
+                }
+            }
+        }
+
+        // VVV переменные VVV
+
+        public string GetVarExpression(string s)
+        {
+            foreach (var item in listBox1.Items)
+            {
+                if (item.ToString()[0] == s[0])
+                {
+                    return item.ToString().Remove(0, 2);
+                }
+            }
+            
+            return null;
+        }
+
+        void VarHandle(string varLiteral)
+        {
+            if (checkBox2.Checked)
+            {
+                label4.Text = varLiteral;
+            }
+            else if (!checkBox1.Checked)
+            {
+                label3.Text = varLiteral;
+                var s = GetVarExpression(varLiteral);
+
+                if (s != null)
+                {
+                    textBox1.Text = s;
+                }
+            }
+            
+            else if (checkBox1.Checked)
+            {
+                var s = GetVarExpression(varLiteral);
+
+                if (s != null)
+                {
+                    //stateMonitor.MonitoredString += s + " ";
+                    stateMonitor.MonitoredString += varLiteral[0] + " ";
+                }
+
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e) // VC
+        {
+            label4.Text = "";
+        }
+
+        private void button68_Click(object sender, EventArgs e) // a
+        {
+            VarHandle("a=");
+        }
+
+        private void button67_Click(object sender, EventArgs e) // b
+        {
+            VarHandle("b=");
+        }
+
+        private void button66_Click(object sender, EventArgs e) // c
+        {
+            VarHandle("c=");
+        }
+
+        private void button65_Click(object sender, EventArgs e) // d
+        {
+            VarHandle("d=");
+        }
+
+        private void button64_Click(object sender, EventArgs e) // e
+        {
+            VarHandle("e=");
+        }
+
+        private void button63_Click(object sender, EventArgs e) // f
+        {
+            VarHandle("f=");
+        }
+
+        private void button62_Click(object sender, EventArgs e) // g
+        {
+            VarHandle("g=");
+        }
+
+        private void button61_Click(object sender, EventArgs e) // h
+        {
+            VarHandle("h=");
+        }
+
+        private void button60_Click(object sender, EventArgs e) // i
+        {
+            VarHandle("i=");
+        }
+
+        private void button59_Click(object sender, EventArgs e) // j
+        {
+            VarHandle("j=");
+        }
+
+        private void button58_Click(object sender, EventArgs e) // k
+        {
+            VarHandle("k=");
+        }
+
+        private void button57_Click(object sender, EventArgs e) // l
+        {
+            VarHandle("l=");
+        }
+
+        private void button56_Click(object sender, EventArgs e) // m
+        {
+            VarHandle("m=");
+        }
+
+        private void button55_Click(object sender, EventArgs e) // n
+        {
+            VarHandle("n=");
+        }
+
+        private void button54_Click(object sender, EventArgs e) // o
+        {
+            VarHandle("o=");
+        }
+
+        private void button53_Click(object sender, EventArgs e) // p
+        {
+            VarHandle("p=");
+        }
+
+        private void button52_Click(object sender, EventArgs e) // q
+        {
+            VarHandle("q=");
+        }
+
+        private void button51_Click(object sender, EventArgs e) // r
+        {
+            VarHandle("r=");
+        }
+
+        private void button50_Click(object sender, EventArgs e) // s
+        {
+            VarHandle("s=");
+        }
+
+        private void button49_Click(object sender, EventArgs e) // t
+        {
+            VarHandle("t=");
+        }
+
+        private void button48_Click(object sender, EventArgs e) // u
+        {
+            VarHandle("u=");
+        }
+
+        private void button47_Click(object sender, EventArgs e) // v
+        {
+            VarHandle("v=");
+        }
+
+        private void button46_Click(object sender, EventArgs e) // w
+        {
+            VarHandle("w=");
+        }
+
+        private void button45_Click(object sender, EventArgs e) // x
+        {
+            VarHandle("x=");
+        }
+
+        private void button70_Click(object sender, EventArgs e) // y
+        {
+            VarHandle("y=");
+        }
+
+        private void button69_Click(object sender, EventArgs e) // z
+        {
+            VarHandle("z=");
+        }
+
+        private void button71_Click(object sender, EventArgs e) // задать
+        {
+            if (label3.Text.Contains('=') && textBox1.Text.Length > 0 && !checkBox1.Checked)
+            {
+                foreach (var item in listBox1.Items)
+                {
+                    if (item.ToString()[0] == label3.Text[0])
+                    {
+                        listBox1.Items[listBox1.Items.IndexOf(item)] = label3.Text + textBox1.Text;
+                        listBoxGlobal = listBox1;
+                        return;
+                    }
+                }
+                listBox1.Items.Add(label3.Text + textBox1.Text);
+                listBoxGlobal = listBox1;
+            }
+        }
+
+        private void button72_Click(object sender, EventArgs e) // очистить
+        {
+            listBox1.Items.Clear();
+            textBox1.Text = string.Empty;
+            listBoxGlobal = listBox1;
+        }
+
+        // VVV мат функции VVV
+
+
+
+        private void button19_Click(object sender, EventArgs e) // sqr (^2)
+        {
+            stateMonitor.MonitoredString += "sqr";
+        }
+
+        
     }
 }

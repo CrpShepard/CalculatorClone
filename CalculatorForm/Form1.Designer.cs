@@ -89,14 +89,46 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.button45 = new System.Windows.Forms.Button();
+            this.button46 = new System.Windows.Forms.Button();
+            this.button47 = new System.Windows.Forms.Button();
+            this.button48 = new System.Windows.Forms.Button();
+            this.button49 = new System.Windows.Forms.Button();
+            this.button50 = new System.Windows.Forms.Button();
+            this.button51 = new System.Windows.Forms.Button();
+            this.button52 = new System.Windows.Forms.Button();
+            this.button53 = new System.Windows.Forms.Button();
+            this.button54 = new System.Windows.Forms.Button();
+            this.button55 = new System.Windows.Forms.Button();
+            this.button56 = new System.Windows.Forms.Button();
+            this.button57 = new System.Windows.Forms.Button();
+            this.button58 = new System.Windows.Forms.Button();
+            this.button59 = new System.Windows.Forms.Button();
+            this.button60 = new System.Windows.Forms.Button();
+            this.button61 = new System.Windows.Forms.Button();
+            this.button62 = new System.Windows.Forms.Button();
+            this.button63 = new System.Windows.Forms.Button();
+            this.button64 = new System.Windows.Forms.Button();
+            this.button65 = new System.Windows.Forms.Button();
+            this.button66 = new System.Windows.Forms.Button();
+            this.button67 = new System.Windows.Forms.Button();
+            this.button68 = new System.Windows.Forms.Button();
+            this.button69 = new System.Windows.Forms.Button();
+            this.button70 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.button71 = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.button72 = new System.Windows.Forms.Button();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.button4 = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -170,6 +202,7 @@
             this.button41.TabIndex = 34;
             this.button41.Text = ",";
             this.button41.UseVisualStyleBackColor = false;
+            this.button41.Click += new System.EventHandler(this.button41_Click);
             // 
             // button42
             // 
@@ -524,6 +557,7 @@
             this.button19.TabIndex = 6;
             this.button19.Text = "x^2";
             this.button19.UseVisualStyleBackColor = false;
+            this.button19.Click += new System.EventHandler(this.button19_Click);
             // 
             // button14
             // 
@@ -725,6 +759,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.button1);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.label1);
@@ -744,6 +779,7 @@
             this.button1.TabIndex = 2;
             this.button1.Text = "🕒";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label2
             // 
@@ -765,90 +801,15 @@
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.button9);
-            this.panel3.Controls.Add(this.button8);
-            this.panel3.Controls.Add(this.button7);
-            this.panel3.Controls.Add(this.button6);
-            this.panel3.Controls.Add(this.button5);
             this.panel3.Controls.Add(this.button4);
+            this.panel3.Controls.Add(this.checkBox2);
             this.panel3.Controls.Add(this.button3);
+            this.panel3.Controls.Add(this.checkBox1);
             this.panel3.Controls.Add(this.button2);
             this.panel3.Location = new System.Drawing.Point(13, 128);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(399, 73);
             this.panel3.TabIndex = 2;
-            // 
-            // button9
-            // 
-            this.button9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
-            this.button9.FlatAppearance.BorderSize = 0;
-            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button9.Location = new System.Drawing.Point(333, 37);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(60, 30);
-            this.button9.TabIndex = 7;
-            this.button9.Text = "M∨";
-            this.button9.UseVisualStyleBackColor = false;
-            // 
-            // button8
-            // 
-            this.button8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
-            this.button8.FlatAppearance.BorderSize = 0;
-            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button8.Location = new System.Drawing.Point(267, 37);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(60, 30);
-            this.button8.TabIndex = 6;
-            this.button8.Text = "MS";
-            this.button8.UseVisualStyleBackColor = false;
-            // 
-            // button7
-            // 
-            this.button7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
-            this.button7.FlatAppearance.BorderSize = 0;
-            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.Location = new System.Drawing.Point(201, 37);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(60, 30);
-            this.button7.TabIndex = 5;
-            this.button7.Text = "M-";
-            this.button7.UseVisualStyleBackColor = false;
-            // 
-            // button6
-            // 
-            this.button6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
-            this.button6.FlatAppearance.BorderSize = 0;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.Location = new System.Drawing.Point(135, 37);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(60, 30);
-            this.button6.TabIndex = 4;
-            this.button6.Text = "M+";
-            this.button6.UseVisualStyleBackColor = false;
-            // 
-            // button5
-            // 
-            this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
-            this.button5.FlatAppearance.BorderSize = 0;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Location = new System.Drawing.Point(69, 37);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(60, 30);
-            this.button5.TabIndex = 3;
-            this.button5.Text = "MR";
-            this.button5.UseVisualStyleBackColor = false;
-            // 
-            // button4
-            // 
-            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Location = new System.Drawing.Point(3, 37);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(60, 30);
-            this.button4.TabIndex = 2;
-            this.button4.Text = "MC";
-            this.button4.UseVisualStyleBackColor = false;
             // 
             // button3
             // 
@@ -874,15 +835,540 @@
             this.button2.Text = "DEG";
             this.button2.UseVisualStyleBackColor = false;
             // 
+            // button45
+            // 
+            this.button45.BackColor = System.Drawing.Color.White;
+            this.button45.FlatAppearance.BorderSize = 0;
+            this.button45.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button45.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button45.Location = new System.Drawing.Point(679, 424);
+            this.button45.Name = "button45";
+            this.button45.Size = new System.Drawing.Size(73, 32);
+            this.button45.TabIndex = 59;
+            this.button45.Text = "x";
+            this.button45.UseVisualStyleBackColor = false;
+            this.button45.Click += new System.EventHandler(this.button45_Click);
+            // 
+            // button46
+            // 
+            this.button46.BackColor = System.Drawing.Color.White;
+            this.button46.FlatAppearance.BorderSize = 0;
+            this.button46.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button46.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button46.Location = new System.Drawing.Point(600, 424);
+            this.button46.Name = "button46";
+            this.button46.Size = new System.Drawing.Size(73, 32);
+            this.button46.TabIndex = 58;
+            this.button46.Text = "w";
+            this.button46.UseVisualStyleBackColor = false;
+            this.button46.Click += new System.EventHandler(this.button46_Click);
+            // 
+            // button47
+            // 
+            this.button47.BackColor = System.Drawing.Color.White;
+            this.button47.FlatAppearance.BorderSize = 0;
+            this.button47.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button47.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button47.Location = new System.Drawing.Point(521, 424);
+            this.button47.Name = "button47";
+            this.button47.Size = new System.Drawing.Size(73, 32);
+            this.button47.TabIndex = 57;
+            this.button47.Text = "v";
+            this.button47.UseVisualStyleBackColor = false;
+            this.button47.Click += new System.EventHandler(this.button47_Click);
+            // 
+            // button48
+            // 
+            this.button48.BackColor = System.Drawing.Color.White;
+            this.button48.FlatAppearance.BorderSize = 0;
+            this.button48.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button48.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button48.Location = new System.Drawing.Point(442, 424);
+            this.button48.Name = "button48";
+            this.button48.Size = new System.Drawing.Size(73, 32);
+            this.button48.TabIndex = 56;
+            this.button48.Text = "u";
+            this.button48.UseVisualStyleBackColor = false;
+            this.button48.Click += new System.EventHandler(this.button48_Click);
+            // 
+            // button49
+            // 
+            this.button49.BackColor = System.Drawing.Color.White;
+            this.button49.FlatAppearance.BorderSize = 0;
+            this.button49.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button49.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button49.Location = new System.Drawing.Point(679, 386);
+            this.button49.Name = "button49";
+            this.button49.Size = new System.Drawing.Size(73, 32);
+            this.button49.TabIndex = 55;
+            this.button49.Text = "t";
+            this.button49.UseVisualStyleBackColor = false;
+            this.button49.Click += new System.EventHandler(this.button49_Click);
+            // 
+            // button50
+            // 
+            this.button50.BackColor = System.Drawing.Color.White;
+            this.button50.FlatAppearance.BorderSize = 0;
+            this.button50.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button50.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button50.Location = new System.Drawing.Point(600, 386);
+            this.button50.Name = "button50";
+            this.button50.Size = new System.Drawing.Size(73, 32);
+            this.button50.TabIndex = 54;
+            this.button50.Text = "s";
+            this.button50.UseVisualStyleBackColor = false;
+            this.button50.Click += new System.EventHandler(this.button50_Click);
+            // 
+            // button51
+            // 
+            this.button51.BackColor = System.Drawing.Color.White;
+            this.button51.FlatAppearance.BorderSize = 0;
+            this.button51.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button51.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button51.Location = new System.Drawing.Point(521, 386);
+            this.button51.Name = "button51";
+            this.button51.Size = new System.Drawing.Size(73, 32);
+            this.button51.TabIndex = 53;
+            this.button51.Text = "r";
+            this.button51.UseVisualStyleBackColor = false;
+            this.button51.Click += new System.EventHandler(this.button51_Click);
+            // 
+            // button52
+            // 
+            this.button52.BackColor = System.Drawing.Color.White;
+            this.button52.FlatAppearance.BorderSize = 0;
+            this.button52.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button52.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button52.Location = new System.Drawing.Point(442, 386);
+            this.button52.Name = "button52";
+            this.button52.Size = new System.Drawing.Size(73, 32);
+            this.button52.TabIndex = 52;
+            this.button52.Text = "q";
+            this.button52.UseVisualStyleBackColor = false;
+            this.button52.Click += new System.EventHandler(this.button52_Click);
+            // 
+            // button53
+            // 
+            this.button53.BackColor = System.Drawing.Color.White;
+            this.button53.FlatAppearance.BorderSize = 0;
+            this.button53.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button53.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button53.Location = new System.Drawing.Point(679, 348);
+            this.button53.Name = "button53";
+            this.button53.Size = new System.Drawing.Size(73, 32);
+            this.button53.TabIndex = 51;
+            this.button53.Text = "p";
+            this.button53.UseVisualStyleBackColor = false;
+            this.button53.Click += new System.EventHandler(this.button53_Click);
+            // 
+            // button54
+            // 
+            this.button54.BackColor = System.Drawing.Color.White;
+            this.button54.FlatAppearance.BorderSize = 0;
+            this.button54.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button54.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button54.Location = new System.Drawing.Point(600, 348);
+            this.button54.Name = "button54";
+            this.button54.Size = new System.Drawing.Size(73, 32);
+            this.button54.TabIndex = 50;
+            this.button54.Text = "o";
+            this.button54.UseVisualStyleBackColor = false;
+            this.button54.Click += new System.EventHandler(this.button54_Click);
+            // 
+            // button55
+            // 
+            this.button55.BackColor = System.Drawing.Color.White;
+            this.button55.FlatAppearance.BorderSize = 0;
+            this.button55.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button55.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button55.Location = new System.Drawing.Point(521, 348);
+            this.button55.Name = "button55";
+            this.button55.Size = new System.Drawing.Size(73, 32);
+            this.button55.TabIndex = 49;
+            this.button55.Text = "n";
+            this.button55.UseVisualStyleBackColor = false;
+            this.button55.Click += new System.EventHandler(this.button55_Click);
+            // 
+            // button56
+            // 
+            this.button56.BackColor = System.Drawing.Color.White;
+            this.button56.FlatAppearance.BorderSize = 0;
+            this.button56.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button56.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button56.Location = new System.Drawing.Point(442, 348);
+            this.button56.Name = "button56";
+            this.button56.Size = new System.Drawing.Size(73, 32);
+            this.button56.TabIndex = 48;
+            this.button56.Text = "m";
+            this.button56.UseVisualStyleBackColor = false;
+            this.button56.Click += new System.EventHandler(this.button56_Click);
+            // 
+            // button57
+            // 
+            this.button57.BackColor = System.Drawing.Color.White;
+            this.button57.FlatAppearance.BorderSize = 0;
+            this.button57.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button57.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button57.Location = new System.Drawing.Point(679, 310);
+            this.button57.Name = "button57";
+            this.button57.Size = new System.Drawing.Size(73, 32);
+            this.button57.TabIndex = 47;
+            this.button57.Text = "l";
+            this.button57.UseVisualStyleBackColor = false;
+            this.button57.Click += new System.EventHandler(this.button57_Click);
+            // 
+            // button58
+            // 
+            this.button58.BackColor = System.Drawing.Color.White;
+            this.button58.FlatAppearance.BorderSize = 0;
+            this.button58.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button58.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button58.Location = new System.Drawing.Point(600, 310);
+            this.button58.Name = "button58";
+            this.button58.Size = new System.Drawing.Size(73, 32);
+            this.button58.TabIndex = 46;
+            this.button58.Text = "k";
+            this.button58.UseVisualStyleBackColor = false;
+            this.button58.Click += new System.EventHandler(this.button58_Click);
+            // 
+            // button59
+            // 
+            this.button59.BackColor = System.Drawing.Color.White;
+            this.button59.FlatAppearance.BorderSize = 0;
+            this.button59.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button59.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button59.Location = new System.Drawing.Point(521, 310);
+            this.button59.Name = "button59";
+            this.button59.Size = new System.Drawing.Size(73, 32);
+            this.button59.TabIndex = 45;
+            this.button59.Text = "j";
+            this.button59.UseVisualStyleBackColor = false;
+            this.button59.Click += new System.EventHandler(this.button59_Click);
+            // 
+            // button60
+            // 
+            this.button60.BackColor = System.Drawing.Color.White;
+            this.button60.FlatAppearance.BorderSize = 0;
+            this.button60.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button60.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button60.Location = new System.Drawing.Point(442, 310);
+            this.button60.Name = "button60";
+            this.button60.Size = new System.Drawing.Size(73, 32);
+            this.button60.TabIndex = 44;
+            this.button60.Text = "i";
+            this.button60.UseVisualStyleBackColor = false;
+            this.button60.Click += new System.EventHandler(this.button60_Click);
+            // 
+            // button61
+            // 
+            this.button61.BackColor = System.Drawing.Color.White;
+            this.button61.FlatAppearance.BorderSize = 0;
+            this.button61.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button61.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button61.Location = new System.Drawing.Point(679, 272);
+            this.button61.Name = "button61";
+            this.button61.Size = new System.Drawing.Size(73, 32);
+            this.button61.TabIndex = 43;
+            this.button61.Text = "h";
+            this.button61.UseVisualStyleBackColor = false;
+            this.button61.Click += new System.EventHandler(this.button61_Click);
+            // 
+            // button62
+            // 
+            this.button62.BackColor = System.Drawing.Color.White;
+            this.button62.FlatAppearance.BorderSize = 0;
+            this.button62.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button62.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button62.Location = new System.Drawing.Point(600, 272);
+            this.button62.Name = "button62";
+            this.button62.Size = new System.Drawing.Size(73, 32);
+            this.button62.TabIndex = 42;
+            this.button62.Text = "g";
+            this.button62.UseVisualStyleBackColor = false;
+            this.button62.Click += new System.EventHandler(this.button62_Click);
+            // 
+            // button63
+            // 
+            this.button63.BackColor = System.Drawing.Color.White;
+            this.button63.FlatAppearance.BorderSize = 0;
+            this.button63.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button63.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button63.Location = new System.Drawing.Point(521, 272);
+            this.button63.Name = "button63";
+            this.button63.Size = new System.Drawing.Size(73, 32);
+            this.button63.TabIndex = 41;
+            this.button63.Text = "f";
+            this.button63.UseVisualStyleBackColor = false;
+            this.button63.Click += new System.EventHandler(this.button63_Click);
+            // 
+            // button64
+            // 
+            this.button64.BackColor = System.Drawing.Color.White;
+            this.button64.FlatAppearance.BorderSize = 0;
+            this.button64.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button64.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button64.Location = new System.Drawing.Point(442, 272);
+            this.button64.Name = "button64";
+            this.button64.Size = new System.Drawing.Size(73, 32);
+            this.button64.TabIndex = 40;
+            this.button64.Text = "e";
+            this.button64.UseVisualStyleBackColor = false;
+            this.button64.Click += new System.EventHandler(this.button64_Click);
+            // 
+            // button65
+            // 
+            this.button65.BackColor = System.Drawing.Color.White;
+            this.button65.FlatAppearance.BorderSize = 0;
+            this.button65.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button65.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button65.Location = new System.Drawing.Point(679, 234);
+            this.button65.Name = "button65";
+            this.button65.Size = new System.Drawing.Size(73, 32);
+            this.button65.TabIndex = 39;
+            this.button65.Text = "d";
+            this.button65.UseVisualStyleBackColor = false;
+            this.button65.Click += new System.EventHandler(this.button65_Click);
+            // 
+            // button66
+            // 
+            this.button66.BackColor = System.Drawing.Color.White;
+            this.button66.FlatAppearance.BorderSize = 0;
+            this.button66.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button66.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button66.Location = new System.Drawing.Point(600, 234);
+            this.button66.Name = "button66";
+            this.button66.Size = new System.Drawing.Size(73, 32);
+            this.button66.TabIndex = 38;
+            this.button66.Text = "c";
+            this.button66.UseVisualStyleBackColor = false;
+            this.button66.Click += new System.EventHandler(this.button66_Click);
+            // 
+            // button67
+            // 
+            this.button67.BackColor = System.Drawing.Color.White;
+            this.button67.FlatAppearance.BorderSize = 0;
+            this.button67.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button67.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button67.Location = new System.Drawing.Point(521, 234);
+            this.button67.Name = "button67";
+            this.button67.Size = new System.Drawing.Size(73, 32);
+            this.button67.TabIndex = 37;
+            this.button67.Text = "b";
+            this.button67.UseVisualStyleBackColor = false;
+            this.button67.Click += new System.EventHandler(this.button67_Click);
+            // 
+            // button68
+            // 
+            this.button68.BackColor = System.Drawing.Color.White;
+            this.button68.FlatAppearance.BorderSize = 0;
+            this.button68.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button68.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button68.Location = new System.Drawing.Point(442, 234);
+            this.button68.Name = "button68";
+            this.button68.Size = new System.Drawing.Size(73, 32);
+            this.button68.TabIndex = 36;
+            this.button68.Text = "a";
+            this.button68.UseVisualStyleBackColor = false;
+            this.button68.Click += new System.EventHandler(this.button68_Click);
+            // 
+            // button69
+            // 
+            this.button69.BackColor = System.Drawing.Color.White;
+            this.button69.FlatAppearance.BorderSize = 0;
+            this.button69.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button69.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button69.Location = new System.Drawing.Point(521, 462);
+            this.button69.Name = "button69";
+            this.button69.Size = new System.Drawing.Size(73, 32);
+            this.button69.TabIndex = 61;
+            this.button69.Text = "z";
+            this.button69.UseVisualStyleBackColor = false;
+            this.button69.Click += new System.EventHandler(this.button69_Click);
+            // 
+            // button70
+            // 
+            this.button70.BackColor = System.Drawing.Color.White;
+            this.button70.FlatAppearance.BorderSize = 0;
+            this.button70.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button70.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button70.Location = new System.Drawing.Point(442, 462);
+            this.button70.Name = "button70";
+            this.button70.Size = new System.Drawing.Size(73, 32);
+            this.button70.TabIndex = 60;
+            this.button70.Text = "y";
+            this.button70.UseVisualStyleBackColor = false;
+            this.button70.Click += new System.EventHandler(this.button70_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBox1.Location = new System.Drawing.Point(521, 163);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(152, 38);
+            this.textBox1.TabIndex = 62;
+            // 
+            // button71
+            // 
+            this.button71.BackColor = System.Drawing.Color.White;
+            this.button71.FlatAppearance.BorderSize = 0;
+            this.button71.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button71.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button71.Location = new System.Drawing.Point(679, 165);
+            this.button71.Name = "button71";
+            this.button71.Size = new System.Drawing.Size(73, 32);
+            this.button71.TabIndex = 63;
+            this.button71.Text = "Задать";
+            this.button71.UseVisualStyleBackColor = false;
+            this.button71.Click += new System.EventHandler(this.button71_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label3.Location = new System.Drawing.Point(455, 171);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(60, 24);
+            this.label3.TabIndex = 64;
+            this.label3.Text = "label3";
+            // 
+            // button72
+            // 
+            this.button72.BackColor = System.Drawing.Color.IndianRed;
+            this.button72.FlatAppearance.BorderSize = 0;
+            this.button72.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button72.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button72.Location = new System.Drawing.Point(679, 462);
+            this.button72.Name = "button72";
+            this.button72.Size = new System.Drawing.Size(73, 32);
+            this.button72.TabIndex = 65;
+            this.button72.Text = "Очистить";
+            this.button72.UseVisualStyleBackColor = false;
+            this.button72.Click += new System.EventHandler(this.button72_Click);
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(203, 11);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(160, 17);
+            this.checkBox1.TabIndex = 66;
+            this.checkBox1.Text = "Режим ввода переменных";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Location = new System.Drawing.Point(442, 28);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.ScrollAlwaysVisible = true;
+            this.listBox1.Size = new System.Drawing.Size(310, 95);
+            this.listBox1.Sorted = true;
+            this.listBox1.TabIndex = 67;
+            // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Location = new System.Drawing.Point(203, 43);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(189, 17);
+            this.checkBox2.TabIndex = 67;
+            this.checkBox2.Text = "Режим присвоения переменной";
+            this.checkBox2.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
+            this.button4.FlatAppearance.BorderSize = 0;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Location = new System.Drawing.Point(3, 38);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(60, 30);
+            this.button4.TabIndex = 68;
+            this.button4.Text = "VC";
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(3, 3);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(35, 13);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "label4";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(439, 12);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(76, 13);
+            this.label5.TabIndex = 68;
+            this.label5.Text = "Переменные:";
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(442, 129);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(75, 23);
+            this.button5.TabIndex = 69;
+            this.button5.Text = "Экспорт";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(677, 129);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(75, 23);
+            this.button6.TabIndex = 70;
+            this.button6.Text = "Импорт";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
-            this.ClientSize = new System.Drawing.Size(423, 508);
+            this.ClientSize = new System.Drawing.Size(777, 508);
+            this.Controls.Add(this.button6);
+            this.Controls.Add(this.button5);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.button72);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.button71);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.button69);
+            this.Controls.Add(this.button70);
+            this.Controls.Add(this.button45);
             this.Controls.Add(this.panel3);
+            this.Controls.Add(this.button46);
             this.Controls.Add(this.panel2);
+            this.Controls.Add(this.button47);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.button48);
+            this.Controls.Add(this.button53);
+            this.Controls.Add(this.button49);
+            this.Controls.Add(this.button68);
+            this.Controls.Add(this.button50);
+            this.Controls.Add(this.button67);
+            this.Controls.Add(this.button51);
+            this.Controls.Add(this.button66);
+            this.Controls.Add(this.button52);
+            this.Controls.Add(this.button65);
+            this.Controls.Add(this.button64);
+            this.Controls.Add(this.button54);
+            this.Controls.Add(this.button63);
+            this.Controls.Add(this.button55);
+            this.Controls.Add(this.button62);
+            this.Controls.Add(this.button56);
+            this.Controls.Add(this.button61);
+            this.Controls.Add(this.button57);
+            this.Controls.Add(this.button60);
+            this.Controls.Add(this.button58);
+            this.Controls.Add(this.button59);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
@@ -894,7 +1380,9 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -906,8 +1394,6 @@
         public System.Windows.Forms.Label label2;
         public System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button40;
@@ -964,9 +1450,43 @@
         private System.Windows.Forms.ToolStripMenuItem randToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dmsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem degToolStripMenuItem;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button button45;
+        private System.Windows.Forms.Button button46;
+        private System.Windows.Forms.Button button47;
+        private System.Windows.Forms.Button button48;
+        private System.Windows.Forms.Button button49;
+        private System.Windows.Forms.Button button50;
+        private System.Windows.Forms.Button button51;
+        private System.Windows.Forms.Button button52;
+        private System.Windows.Forms.Button button53;
+        private System.Windows.Forms.Button button54;
+        private System.Windows.Forms.Button button55;
+        private System.Windows.Forms.Button button56;
+        private System.Windows.Forms.Button button57;
+        private System.Windows.Forms.Button button58;
+        private System.Windows.Forms.Button button59;
+        private System.Windows.Forms.Button button60;
+        private System.Windows.Forms.Button button61;
+        private System.Windows.Forms.Button button62;
+        private System.Windows.Forms.Button button63;
+        private System.Windows.Forms.Button button64;
+        private System.Windows.Forms.Button button65;
+        public System.Windows.Forms.Button button66;
+        private System.Windows.Forms.Button button67;
+        private System.Windows.Forms.Button button68;
+        private System.Windows.Forms.Button button69;
+        private System.Windows.Forms.Button button70;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button button71;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button button72;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
     }
 }
