@@ -11,13 +11,14 @@ namespace CalculatorForm
         static public string[] FuncNames =
         {
             "sqr", "abs", "sqrt", "fact",
-            "log", "ln", "negate", "cube", "cuberoot", "e^",
+            "log", "ln", "negate", "cube", "cuberoot", "exp", // negate это +/- (отриц знач)
             //"yroot", "logbase", ",exp+", "Mod", - операторы скорее
             "sin", "cos", "tan", "sec", "csc", "cot",
             "asin", "acos", "atan", "asec", "acsc", "acot", // asin => sin^(-1)
             "sinh", "cosh", "tanh", "sech", "csch", "coth",
             "asinh", "acosh", "atanh", "asech", "acsch", "acoth",
-            "floor", "ceil", "dms", "degrees"
+            "floor", "ceil", "dms", "degrees",
+            "ten", "two", "onediv"
         };
 
         static public bool isFunc(string s)
@@ -42,7 +43,7 @@ namespace CalculatorForm
                 case "negate": result = -a; break;
                 case "cube": result = Math.Pow(a, 3); break;
                 case "cuberoot": result = Math.Pow(a, 1 / 3); break;
-                case "e^": result = Math.Exp(a); break;
+                case "exp": result = Math.Exp(a); break;
 
                 case "sin": result = Math.Sin(a); break;
                 case "cos": result = Math.Cos(a); break;
@@ -76,6 +77,10 @@ namespace CalculatorForm
                 case "ceil": result = Math.Ceiling(a); break;
                 case "dms": result = a + Math.Floor(((a - Math.Floor(a)) * 60) % 60) / 100 + Math.Floor(((a - Math.Floor(a)) * 60) % 60) / 10000; break;
                 case "degrees": result = a - Math.Floor(a) + (a - Math.Floor(a)) / 100 / 60 + Math.Floor(a) + (a - Math.Floor(a)) / 10000 / 3600; break;
+
+                case "ten": result = Math.Pow(10, a); break;
+                case "two": result = Math.Pow(2, a); break;
+                case "onediv": result = 1 / a; break;
             }
             return result;
         }

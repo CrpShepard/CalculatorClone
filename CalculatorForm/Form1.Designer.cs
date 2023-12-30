@@ -85,11 +85,15 @@
             this.dmsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.degToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.button4 = new System.Windows.Forms.Button();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.button3 = new System.Windows.Forms.Button();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.button2 = new System.Windows.Forms.Button();
             this.button45 = new System.Windows.Forms.Button();
             this.button46 = new System.Windows.Forms.Button();
@@ -121,11 +125,7 @@
             this.button71 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.button72 = new System.Windows.Forms.Button();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.listBox1 = new System.Windows.Forms.ListBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.button4 = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
@@ -228,6 +228,7 @@
             this.button43.TabIndex = 32;
             this.button43.Text = "+/-";
             this.button43.UseVisualStyleBackColor = false;
+            this.button43.Click += new System.EventHandler(this.button43_Click);
             // 
             // button44
             // 
@@ -240,6 +241,7 @@
             this.button44.TabIndex = 31;
             this.button44.Text = "ln";
             this.button44.UseVisualStyleBackColor = false;
+            this.button44.Click += new System.EventHandler(this.button44_Click);
             // 
             // button35
             // 
@@ -304,6 +306,7 @@
             this.button39.TabIndex = 26;
             this.button39.Text = "log";
             this.button39.UseVisualStyleBackColor = false;
+            this.button39.Click += new System.EventHandler(this.button39_Click);
             // 
             // button30
             // 
@@ -368,6 +371,7 @@
             this.button34.TabIndex = 21;
             this.button34.Text = "10^x";
             this.button34.UseVisualStyleBackColor = false;
+            this.button34.Click += new System.EventHandler(this.button34_Click);
             // 
             // button25
             // 
@@ -459,6 +463,7 @@
             this.button21.TabIndex = 14;
             this.button21.Text = "n!";
             this.button21.UseVisualStyleBackColor = false;
+            this.button21.Click += new System.EventHandler(this.button21_Click);
             // 
             // button22
             // 
@@ -497,6 +502,7 @@
             this.button24.TabIndex = 11;
             this.button24.Text = "x^(1/2)";
             this.button24.UseVisualStyleBackColor = false;
+            this.button24.Click += new System.EventHandler(this.button24_Click);
             // 
             // button15
             // 
@@ -533,6 +539,7 @@
             this.button17.TabIndex = 8;
             this.button17.Text = "|x|";
             this.button17.UseVisualStyleBackColor = false;
+            this.button17.Click += new System.EventHandler(this.button17_Click);
             // 
             // button18
             // 
@@ -545,6 +552,7 @@
             this.button18.TabIndex = 7;
             this.button18.Text = "1/x";
             this.button18.UseVisualStyleBackColor = false;
+            this.button18.Click += new System.EventHandler(this.button18_Click);
             // 
             // button19
             // 
@@ -596,6 +604,7 @@
             this.button12.TabIndex = 3;
             this.button12.Text = "e";
             this.button12.UseVisualStyleBackColor = false;
+            this.button12.Click += new System.EventHandler(this.button12_Click);
             // 
             // button11
             // 
@@ -609,6 +618,7 @@
             this.button11.TabIndex = 2;
             this.button11.Text = "𝜋";
             this.button11.UseVisualStyleBackColor = false;
+            this.button11.Click += new System.EventHandler(this.button11_Click);
             // 
             // button10
             // 
@@ -621,6 +631,7 @@
             this.button10.TabIndex = 1;
             this.button10.Text = "2nd";
             this.button10.UseVisualStyleBackColor = false;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
             // menuStrip1
             // 
@@ -768,6 +779,15 @@
             this.panel2.Size = new System.Drawing.Size(399, 110);
             this.panel2.TabIndex = 1;
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(3, 3);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(35, 13);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "label4";
+            // 
             // button1
             // 
             this.button1.FlatAppearance.BorderSize = 0;
@@ -811,6 +831,29 @@
             this.panel3.Size = new System.Drawing.Size(399, 73);
             this.panel3.TabIndex = 2;
             // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
+            this.button4.FlatAppearance.BorderSize = 0;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Location = new System.Drawing.Point(3, 38);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(60, 30);
+            this.button4.TabIndex = 68;
+            this.button4.Text = "VC";
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Location = new System.Drawing.Point(203, 43);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(189, 17);
+            this.checkBox2.TabIndex = 67;
+            this.checkBox2.Text = "Режим присвоения переменной";
+            this.checkBox2.UseVisualStyleBackColor = true;
+            // 
             // button3
             // 
             this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
@@ -822,6 +865,16 @@
             this.button3.TabIndex = 1;
             this.button3.Text = "F-E";
             this.button3.UseVisualStyleBackColor = false;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(203, 11);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(160, 17);
+            this.checkBox1.TabIndex = 66;
+            this.checkBox1.Text = "Режим ввода переменных";
+            this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // button2
             // 
@@ -1245,16 +1298,6 @@
             this.button72.UseVisualStyleBackColor = false;
             this.button72.Click += new System.EventHandler(this.button72_Click);
             // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(203, 11);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(160, 17);
-            this.checkBox1.TabIndex = 66;
-            this.checkBox1.Text = "Режим ввода переменных";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            // 
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
@@ -1264,38 +1307,6 @@
             this.listBox1.Size = new System.Drawing.Size(310, 95);
             this.listBox1.Sorted = true;
             this.listBox1.TabIndex = 67;
-            // 
-            // checkBox2
-            // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(203, 43);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(189, 17);
-            this.checkBox2.TabIndex = 67;
-            this.checkBox2.Text = "Режим присвоения переменной";
-            this.checkBox2.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Location = new System.Drawing.Point(3, 38);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(60, 30);
-            this.button4.TabIndex = 68;
-            this.button4.Text = "VC";
-            this.button4.UseVisualStyleBackColor = false;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(3, 3);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(35, 13);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "label4";
             // 
             // label5
             // 

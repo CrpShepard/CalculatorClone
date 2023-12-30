@@ -19,6 +19,8 @@ namespace CalculatorForm
 
         History historyForm = new History();
 
+        bool secondFunc;
+
         public Form1()
         {
             InitializeComponent();
@@ -29,6 +31,7 @@ namespace CalculatorForm
 
             listBoxGlobal = listBox1;
             History.stateMonitor = stateMonitor;
+            secondFunc = false;
         }
 
         //string oldExpression = string.Empty;
@@ -519,13 +522,102 @@ namespace CalculatorForm
 
         // VVV мат функции VVV
 
+        private void button43_Click(object sender, EventArgs e) // +/- (отриц знач)
+        {
+            stateMonitor.MonitoredString += "negate";
+        }
 
+        private void button10_Click(object sender, EventArgs e) // 2nd
+        {
+            secondFunc = !secondFunc;
+
+            if (!secondFunc)
+            {
+                button10.BackColor = Color.White;
+
+                button19.Text = "x^2";
+                button24.Text = "x^(1/2)";
+                button29.Text = "x^y";
+                button34.Text = "10^x";
+                button39.Text = "log";
+                button44.Text = "ln";
+            }
+            else
+            {
+                button10.BackColor = Color.RoyalBlue;
+
+                button19.Text = "x^3";
+                button24.Text = "x^(1/3)";
+                button29.Text = "x^(1/y)";
+                button34.Text = "2^x";
+                button39.Text = "LOGyX";
+                button44.Text = "e^x";
+            }
+        }
 
         private void button19_Click(object sender, EventArgs e) // sqr (^2)
         {
-            stateMonitor.MonitoredString += "sqr";
+            if (!secondFunc)
+                stateMonitor.MonitoredString += "sqr";
+            else
+                stateMonitor.MonitoredString += "cube";
         }
 
-        
+        private void button24_Click(object sender, EventArgs e) // sqrt
+        {
+            if (!secondFunc)
+                stateMonitor.MonitoredString += "sqrt";
+            else
+                stateMonitor.MonitoredString += "cuberoot";
+        }
+
+        private void button34_Click(object sender, EventArgs e) // 10^x | ten
+        {
+            if (!secondFunc)
+                stateMonitor.MonitoredString += "ten";
+            else
+                stateMonitor.MonitoredString += "two";
+        }
+
+        private void button39_Click(object sender, EventArgs e) // log
+        {
+            if (!secondFunc)
+                stateMonitor.MonitoredString += "log";
+            else
+                stateMonitor.MonitoredString += "logbase";
+        }
+
+        private void button44_Click(object sender, EventArgs e) // ln
+        {
+            if (!secondFunc)
+                stateMonitor.MonitoredString += "ln";
+            else
+                stateMonitor.MonitoredString += "exp";
+        }
+
+        private void button11_Click(object sender, EventArgs e) // pi
+        {
+            stateMonitor.MonitoredString += Math.PI.ToString() + " ";
+        }
+
+        private void button12_Click(object sender, EventArgs e) // e
+        {
+            stateMonitor.MonitoredString += Math.E.ToString() + " ";
+        }
+
+        private void button18_Click(object sender, EventArgs e) // 1/x | onediv
+        {
+            stateMonitor.MonitoredString += "onediv";
+        }
+
+        private void button17_Click(object sender, EventArgs e) // abs
+        {
+            stateMonitor.MonitoredString += "abs";
+        }
+
+        private void button21_Click(object sender, EventArgs e) // fact
+        {
+            stateMonitor.MonitoredString += "fact";
+        }
     }
 }
