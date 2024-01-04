@@ -21,12 +21,54 @@ namespace CalculatorForm
             "ten", "two", "onediv"
         };
 
+        static public string[] FuncOperNames =
+        {
+            "yroot", "logbase", "decpos", "Mod"//, "percent" // decpos это 1,e.+ 0
+        };
+
         static public bool isFunc(string s)
         {
             if (FuncNames.Any(s.Contains))
                 return true;
             return false;
             //return FuncNames.Contains(s);
+        }
+
+        static public bool isFuncOper(string s)
+        {
+            if (FuncOperNames.Any(s.Contains))
+                return true;
+            return false;
+            //return FuncNames.Contains(s);
+        }
+
+        static public double Percent(string s, double a, double b)
+        {
+            double result = 0;
+            switch (s)
+            {
+                case "+": result = a + a * b / 100; break;
+                case "-": result = a - a * b / 100; break;
+                case "*": result = a * b / 100; break;
+                case "/": result = a / b / 100; break;
+
+                default: result = 0; break;
+            }
+            return result;
+        }
+
+        static public double CalculateFuncOper(string s, double a, double b)
+        {
+            double result = 0;
+            switch (s)
+            {
+                case "yroot": result = Math.Pow(a, 1 / b); break;
+                case "logbase": result = Math.Log(a, b); break;
+                case "decpos": result = a * Math.Pow(10, b); break;
+                case "mod": result = a % b; break;
+                //case "percent": result = a % b; break; проценты как отдельная функция должна быть percent(a, b, oper)
+            }
+            return result;
         }
 
         static public double Calculate(string s, double a)

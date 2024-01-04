@@ -16,6 +16,7 @@ namespace CalculatorForm
             string newInput = "";
             
             Stack<string> funcStack = new Stack<string>();
+            Stack<string> funcOperStack = new Stack<string>();
             //string subExp = "";
             List<String> subExp = new List<string>();
             int subExpCount = 0;

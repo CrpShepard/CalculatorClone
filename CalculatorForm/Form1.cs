@@ -63,16 +63,32 @@ namespace CalculatorForm
                     {
                         int index = str.Length - 2;
                         int parenthesisCount = 1;
+                        bool subFunc = false;
                         while (parenthesisCount > 0)
                         {
                             if (str[index] == '(')
+                            {
                                 parenthesisCount--;
+                                if (Char.IsLetter(str[index - 1]) && index > 0)
+                                {
+                                    subFunc = true;
+                                    while (Char.IsLetter(str[index - 1]) && index > 1)
+                                        index--;
+                                }
+                            }
                             else if (str[index] == ')')
                                 parenthesisCount++;
+                            
                             index--;
                         }
-                        index++;
-                        str = str.Insert(index, func) + " ";
+
+                        if (!subFunc)
+                        {
+                            index++;
+                            str = str.Insert(index, func) + " ";
+                        }
+                        else
+                            str = str.Insert(index, func + "( ") + " ) ";
                         stateMonitor.MonitoredString = str;
                     }
                     else
@@ -86,11 +102,12 @@ namespace CalculatorForm
                             {
                                 if (!Char.IsDigit(str[index]) && str[index] != '.')
                                 {
+                                    index++;
                                     break;
                                 }
                                 index--;
                             }
-
+                            
                             // Вставляем "мат функцию(" перед последним числом и закрывающую скобку ")"
                             str = str.Insert(index, func + "( ") + " ) ";
                             stateMonitor.MonitoredString = str;
@@ -618,6 +635,13 @@ namespace CalculatorForm
         private void button21_Click(object sender, EventArgs e) // fact
         {
             stateMonitor.MonitoredString += "fact";
+        }
+
+        // функциональные операторы
+
+        private void button15_Click(object sender, EventArgs e) // mod
+        {
+            stateMonitor.MonitoredString += "mod ";
         }
     }
 }
