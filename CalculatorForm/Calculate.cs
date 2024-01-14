@@ -44,13 +44,13 @@ namespace CalculatorForm
                         if (double.TryParse(s[i], out _) || new string[] { "+", "-", "*", "/", "." }.Any(oper => s[i].Contains(oper)))
                         {
                             //subExp += s[i];
-                            subExp[subExpCount - 1] += s[i];
+                            subExp[subExpCount - 1] += s[i] + " ";
                         }
 
                         if (s[i] == "(")
                         {
                             parenthesisCount++;
-                            subExp[subExpCount - 1] += s[i];
+                            subExp[subExpCount - 1] += s[i] + " ";
                         }
 
                         if (s[i] == ")")
@@ -58,11 +58,44 @@ namespace CalculatorForm
                             if (parenthesisCount > 0)
                             {
                                 parenthesisCount--;
-                                subExp[subExpCount - 1] += s[i];
+                                subExp[subExpCount - 1] += s[i] + " ";
 
                             }
                             else
                             {
+                                if (CalcMath.FuncOperNames.Any(name => subExp[subExpCount - 1].Contains(name)) && subExp[subExpCount - 1].Length > 1)
+                                {
+                                    string[] ss = subExp[subExpCount - 1].Split(' ');
+
+                                    int index = 0;
+                                    while (!CalcMath.isFuncOper(ss[index])) 
+                                    {
+                                        index++;
+                                    }
+
+                                    int l_index = index - 1;
+                                    int r_index = index + 1;
+
+                                    double a = 0, b = 0;
+
+                                    if (ss[l_index] == ")")
+                                    {
+
+                                    }
+                                    else
+                                    {
+                                        a = Double.Parse(ss[l_index]);
+                                    }
+                                    if (ss[r_index] == "(")
+                                    {
+
+                                    }
+                                    else
+                                    {
+                                        b = Double.Parse(ss[r_index]);
+                                    }
+                                }
+
                                 subExp[subExpCount - 1] = new Expression(subExp[subExpCount - 1]).Evaluate().ToString();
                                 subExp[subExpCount - 1] = CalcMath.Calculate(funcStack.Pop(), Convert.ToDouble(subExp[subExpCount - 1])).ToString();
                                 subExpCount--;
@@ -115,6 +148,50 @@ namespace CalculatorForm
             //var expression = new Expression(newInput);
 
             newInput = newInput.Replace(",", ".");
+
+            if (CalcMath.FuncOperNames.Any(name => newInput.Contains(name)) && newInput.Length > 1)
+            {
+                string[] ss = newInput.Split(' ');
+
+                int index = 0;
+                while (!CalcMath.isFuncOper(ss[index]))
+                {
+                    index++;
+                }
+
+                int l_index = index - 1;
+                int r_index = index + 1;
+
+                double a = 0, b = 0;
+
+                if (ss[l_index] == ")")
+                {
+
+                }
+                else
+                {
+                    a = Double.Parse(ss[l_index]);
+                }
+                if (ss[r_index] == "(")
+                {
+
+                }
+                else
+                {
+                    b = Double.Parse(ss[r_index]);
+                }
+
+                string resultFuncOper = CalcMath.CalculateFuncOper(ss[index], a, b).ToString();
+                string fixedInput = "";
+                for (int i = 0; i < ss.Length; i++)
+                {
+                    if (i != l_index && i != r_index && i != index)
+                        fixedInput += ss[i] + " ";
+                    if (i == index)
+                        fixedInput += resultFuncOper + " ";
+                }
+                newInput = fixedInput;
+            }
 
             var expression = new Expression(newInput);
 

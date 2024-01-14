@@ -23,7 +23,7 @@ namespace CalculatorForm
 
         static public string[] FuncOperNames =
         {
-            "yroot", "logbase", "decpos", "Mod"//, "percent" // decpos это 1,e.+ 0
+            "yroot", "logbase", "decpos", "mod"//, "percent" // decpos это 1,e.+ 0
         };
 
         static public bool isFunc(string s)
