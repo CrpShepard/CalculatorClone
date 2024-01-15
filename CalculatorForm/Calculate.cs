@@ -116,7 +116,7 @@ namespace CalculatorForm
                         }
                     }
 
-                    if (!double.TryParse(s[i], out _) && !new string[] { "+", "-", "*", "/" }.Any(oper => s[i].Contains(oper)) && s[i].Length == 1)
+                    if (!double.TryParse(s[i], out _) && !new string[] { "+", "-", "*", "/", "(", ")" }.Any(oper => s[i].Contains(oper)) && s[i].Length == 1)
                     {
                         foreach (var item in Form1.listBoxGlobal.Items)
                         {
@@ -140,7 +140,15 @@ namespace CalculatorForm
                 
 
                 if (ready)
+                {
+                    subExpCount = 0;
+                    parenthesisCount = 0;
+                    subExp.Clear();
+                    funcStack.Clear();
+                    funcOperStack.Clear();
                     break;
+                }
+                    
             }
 
             //var expression = new Expression(input);
@@ -152,6 +160,12 @@ namespace CalculatorForm
             if (CalcMath.FuncOperNames.Any(name => newInput.Contains(name)) && newInput.Length > 1)
             {
                 string[] ss = newInput.Split(' ');
+
+                Stack<string> funcOperStackFlat = new Stack<string>();
+                //string subExp = "";
+                List<String> subExpFlat = new List<string>();
+                int subExpCountFlat = 0;
+                int parenthesisCountFlat = 0;
 
                 int index = 0;
                 while (!CalcMath.isFuncOper(ss[index]))
@@ -166,7 +180,41 @@ namespace CalculatorForm
 
                 if (ss[l_index] == ")")
                 {
+                    subExpCountFlat++;
+                    subExpFlat.Add("");
 
+                    l_index--;
+
+                    while (subExpCountFlat > 0)
+                    {
+                        if (ss[l_index] == ")")
+                        {
+                            subExpCountFlat++;
+                            subExpFlat.Add("");
+                        }
+                        if (ss[l_index] == "(")
+                        {
+                            subExpFlat[subExpCountFlat - 1] = new string(subExpFlat[subExpCountFlat - 1].Reverse().ToArray());
+                            subExpFlat[subExpCountFlat - 1] = new Expression(subExpFlat[subExpCountFlat - 1]).Evaluate().ToString();
+                            subExpCountFlat--;
+
+                            if (subExpCountFlat > 0)
+                            {
+                                subExpFlat[subExpCountFlat - 1] += subExpFlat[subExpCountFlat];
+                            }
+
+                            else if (subExpCountFlat == 0)
+                            {
+                                a = Double.Parse(subExpFlat[0]);
+                                subExpFlat.Clear();
+                            }
+                        }
+                        else
+                        {
+                            subExpFlat[subExpCountFlat - 1] += ss[l_index] + " ";
+                        }
+                        l_index--;
+                    }
                 }
                 else
                 {
@@ -174,7 +222,42 @@ namespace CalculatorForm
                 }
                 if (ss[r_index] == "(")
                 {
+                    subExpCountFlat++;
+                    funcOperStackFlat.Push(ss[index]);
+                    subExpFlat.Add("");
 
+                    r_index++;
+
+                    while (subExpCountFlat > 0)
+                    {
+                        if (ss[r_index] == "(")
+                        {
+                            subExpCountFlat++;
+                            subExpFlat.Add("");
+                        }
+                        if (ss[r_index] == ")")
+                        {
+                            //subExpFlat[subExpCountFlat - 1] = new string(subExpFlat[subExpCountFlat - 1].Reverse().ToArray());
+                            subExpFlat[subExpCountFlat - 1] = new Expression(subExpFlat[subExpCountFlat - 1]).Evaluate().ToString();
+                            subExpCountFlat--;
+
+                            if (subExpCountFlat > 0)
+                            {
+                                subExpFlat[subExpCountFlat - 1] += subExpFlat[subExpCountFlat];
+                            }
+
+                            else if (subExpCountFlat == 0)
+                            {
+                                a = Double.Parse(subExpFlat[0]);
+                                subExpFlat.Clear();
+                            }
+                        }
+                        else
+                        {
+                            subExpFlat[subExpCountFlat - 1] += ss[r_index] + " ";
+                        }
+                        r_index++;
+                    }
                 }
                 else
                 {
