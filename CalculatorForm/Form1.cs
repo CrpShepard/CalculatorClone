@@ -69,7 +69,8 @@ namespace CalculatorForm
                             if (str[index] == '(')
                             {
                                 parenthesisCount--;
-                                if (Char.IsLetter(str[index - 1]) && index > 0)
+                                if (index > 0)
+                                if (Char.IsLetter(str[index - 1]))
                                 {
                                     subFunc = true;
                                     while (Char.IsLetter(str[index - 1]) && index > 1)
@@ -82,13 +83,18 @@ namespace CalculatorForm
                             index--;
                         }
 
-                        if (!subFunc)
+                        if (!subFunc || str[0] == '(')
                         {
                             index++;
                             str = str.Insert(index, func) + " ";
                         }
                         else
+                        {
+                            if (index > 0)
+                            if (str[index - 1] != ' ')
+                                index++;
                             str = str.Insert(index, func + "( ") + " ) ";
+                        }
                         stateMonitor.MonitoredString = str;
                     }
                     else
