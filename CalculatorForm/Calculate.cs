@@ -22,13 +22,16 @@ namespace CalculatorForm
             List<int> parenthesisCount = new List<int>();
 
             bool ready = true;
+            bool varAdded = false;
             while (true)
             {
                 ready = true;
+                varAdded = false;
                 newInput = "";
 
                 for (int i = 0; i < s.Length; i++)
                 {
+                    varAdded = false;
                     if (CalcMath.FuncNames.Any(name => s[i].Contains(name)) && s[i].Length > 1 && s[i].Contains("("))
                     {
                         subExpCount++;
@@ -41,7 +44,20 @@ namespace CalculatorForm
 
                     if (subExpCount == 0)
                     {
-                        newInput += s[i] + " ";
+                        if (!double.TryParse(s[i], out _) && !new string[] { "+", "-", "*", "/", "(", ")" }.Any(oper => s[i].Equals(oper)) && s[i].Length == 1 && !varAdded)
+                        {
+                            foreach (var item in Form1.listBoxGlobal.Items)
+                            {
+                                if (item.ToString()[0] == Convert.ToChar(s[i]))
+                                {
+                                    ready = false;
+
+                                    newInput += "( " + item.ToString().Remove(0, 2) + " ) ";
+                                }
+                            }
+                        }
+                        else 
+                            newInput += s[i] + " ";
                     }
 
                     if (subExpCount > 0)
@@ -49,6 +65,18 @@ namespace CalculatorForm
                         if (double.TryParse(s[i], out _) || new string[] { "+", "-", "*", "/", "." }.Any(oper => s[i].Equals(oper)) || CalcMath.FuncOperNames.Any(name => s[i].Equals(name)))
                         {
                             subExp[subExpCount - 1] += s[i] + " ";
+                        }
+
+                        if (!double.TryParse(s[i], out _) && !new string[] { "+", "-", "*", "/", "(", ")" }.Any(oper => s[i].Equals(oper)) && s[i].Length == 1)
+                        {
+                            foreach (var item in Form1.listBoxGlobal.Items)
+                            {
+                                if (item.ToString()[0] == Convert.ToChar(s[i]))
+                                {
+                                    subExp[subExpCount - 1] += "( " + item.ToString().Remove(0, 2) + " ) ";
+                                    varAdded = true;
+                                }
+                            }
                         }
 
                         if (s[i] == "(")
@@ -108,7 +136,7 @@ namespace CalculatorForm
                                     }
                                     if (operReady) break;
                                 }
-                                
+
                                 subExp[subExpCount - 1] = new Expression(subExp[subExpCount - 1]).Evaluate().ToString();
 
                                 if (CalcMath.TrigNames.Any(name => funcStack.Peek().Contains(name)) && !rad) 
@@ -133,21 +161,6 @@ namespace CalculatorForm
 
                         }
                     }
-
-                    if (!double.TryParse(s[i], out _) && !new string[] { "+", "-", "*", "/", "(", ")" }.Any(oper => s[i].Equals(oper)) && s[i].Length == 1)
-                    {
-                        foreach (var item in Form1.listBoxGlobal.Items)
-                        {
-                            if (item.ToString()[0] == Convert.ToChar(s[i]))
-                            {
-                                ready = false;
-
-                                newInput += item.ToString().Remove(0, 2) + " ";
-                            }
-                        }
-                    }
-
-
                 }
                 s = newInput.Split(' ');
 
@@ -164,24 +177,17 @@ namespace CalculatorForm
 
             }
 
-            //var expression = new Expression(input);
-
-            //var expression = new Expression(newInput);
-
             newInput = newInput.Replace(",", ".");
 
             (string, int) OperRecursion(string operInput, int index)
             {
-                //string[] ss = newInput.Split(' ');
                 string[] ss = operInput.Split(' ');
 
                 Stack<string> funcOperStackFlat = new Stack<string>();
-                //string subExp = "";
                 List<String> subExpOper = new List<string>();
                 int subExpCountOper = 0;
                 List<int> parenthesisCountOper = new List<int>();
 
-                //int index = index_;
                 while (!CalcMath.isFuncOper(ss[index]))
                 {
                     index++;
@@ -205,18 +211,13 @@ namespace CalculatorForm
                     {
                         if (ss[l_index] == ")")
                         {
-                            //subExpCountFlat++;
-                            //subExpFlat.Add("");
-                            //parenthesisCountOper++;
                             parenthesisCountOper[subExpCountOper - 1]++;
                             subExpOper[subExpCountOper - 1] += " )";
                         }
                         if (ss[l_index] == "(")
                         {
-                            //if (parenthesisCountOper > 0)
                             if (parenthesisCountOper[subExpCountOper - 1] > 0)
                             {
-                                //parenthesisCountOper--;
                                 parenthesisCountOper[subExpCountOper - 1]--;
                                 subExpOper[subExpCountOper - 1] += " (";
                             }
@@ -274,24 +275,18 @@ namespace CalculatorForm
 
                         if (ss[r_index] == "(")
                         {
-                            //subExpCountFlat++;
-                            //subExpFlat.Add("");
-                            //parenthesisCountOper++;
                             parenthesisCountOper[subExpCountOper - 1]++;
                             subExpOper[subExpCountOper - 1] += "( ";
                         }
                         if (ss[r_index] == ")")
                         {
-                            //if (parenthesisCountOper > 0)
                             if (parenthesisCountOper[subExpCountOper - 1] > 0)
                             {
-                                //parenthesisCountOper--;
                                 parenthesisCountOper[subExpCountOper - 1]--;
                                 subExpOper[subExpCountOper - 1] += ") ";
                             }
                             else
                             {
-                                //subExpFlat[subExpCountFlat - 1] = new string(subExpFlat[subExpCountFlat - 1].Reverse().ToArray());
                                 subExpOper[subExpCountOper - 1] = new Expression(subExpOper[subExpCountOper - 1]).Evaluate().ToString();
                                 subExpCountOper--;
 
@@ -329,7 +324,6 @@ namespace CalculatorForm
                 string[] ss = newInput.Split(' ');
 
                 Stack<string> funcOperStackFlat = new Stack<string>();
-                //string subExp = "";
                 List<String> subExpOper = new List<string>();
                 int subExpCountOper = 0;
                 List<int> parenthesisCountOper = new List<int>();
@@ -358,18 +352,13 @@ namespace CalculatorForm
                     {
                         if (ss[l_index] == ")")
                         {
-                            //subExpCountFlat++;
-                            //subExpFlat.Add("");
-                            //parenthesisCountOper++;
                             parenthesisCountOper[subExpCountOper - 1]++;
                             subExpOper[subExpCountOper - 1] += " )";
                         }
                         if (ss[l_index] == "(")
                         {
-                            //if (parenthesisCountOper > 0)
                             if (parenthesisCountOper[subExpCountOper - 1] > 0)
                             {
-                                //parenthesisCountOper--;
                                 parenthesisCountOper[subExpCountOper - 1]--;
                                 subExpOper[subExpCountOper - 1] += " (";
                             }
@@ -430,24 +419,18 @@ namespace CalculatorForm
 
                         if (ss[r_index] == "(")
                         {
-                            //subExpCountFlat++;
-                            //subExpFlat.Add("");
-                            //parenthesisCountOper++;
                             parenthesisCountOper[subExpCountOper - 1]++;
                             subExpOper[subExpCountOper - 1] += "( ";
                         }
                         if (ss[r_index] == ")")
                         {
-                            //if (parenthesisCountOper > 0)
                             if (parenthesisCountOper[subExpCountOper - 1] > 0)
                             {
-                                //parenthesisCountOper--;
                                 parenthesisCountOper[subExpCountOper - 1]--;
                                 subExpOper[subExpCountOper - 1] += ") ";
                             }
                             else
                             {
-                                //subExpFlat[subExpCountFlat - 1] = new string(subExpFlat[subExpCountFlat - 1].Reverse().ToArray());
                                 subExpOper[subExpCountOper - 1] = new Expression(subExpOper[subExpCountOper - 1]).Evaluate().ToString();
                                 subExpCountOper--;
 

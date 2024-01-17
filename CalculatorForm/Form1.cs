@@ -36,11 +36,8 @@ namespace CalculatorForm
             rad = true;
         }
 
-        //string oldExpression = string.Empty;
-
         void HandleExpressionChange(string str)
         {
-            //oldExpression = str;
             label1.Text = str;
 
             if (str.Length > 1 || (str.Length > 0 && Char.IsDigit(str[str.Length - 1])))
@@ -102,6 +99,15 @@ namespace CalculatorForm
                     else
                     {
                         int lastNumberIndex = str.LastIndexOfAny(new char[] { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' });
+                        foreach (var item in listBox1.Items)
+                        {
+                            if (str.Split(' ').Any(oi => oi.Equals(item.ToString()[0].ToString())))
+                            {
+                                lastNumberIndex = str.LastIndexOfAny(new char[] { item.ToString()[0] });
+                                
+                                
+                            }
+                        }
                         if (lastNumberIndex != -1)
                         {
                             int index = lastNumberIndex;

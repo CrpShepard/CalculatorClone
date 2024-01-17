@@ -12,7 +12,6 @@ namespace CalculatorForm
         {
             "sqr", "abs", "sqrt", "fact",
             "log", "ln", "negate", "cube", "cuberoot", "exp", // negate это +/- (отриц знач)
-            //"yroot", "logbase", ",exp+", "Mod", - операторы скорее
             "sin", "cos", "tan", "sec", "csc", "cot",
             "asin", "acos", "atan", "asec", "acsc", "acot", // asin => sin^(-1)
             "sinh", "cosh", "tanh", "sech", "csch", "coth",
@@ -24,14 +23,14 @@ namespace CalculatorForm
         static public string[] TrigNames =
         {
             "sin", "cos", "tan", "sec", "csc", "cot",
-            "asin", "acos", "atan", "asec", "acsc", "acot", // asin => sin^(-1)
+            "asin", "acos", "atan", "asec", "acsc", "acot",
             "sinh", "cosh", "tanh", "sech", "csch", "coth",
             "asinh", "acosh", "atanh", "asech", "acsch", "acoth"
         };
 
         static public string[] FuncOperNames =
         {
-            "yroot", "logbase", "decpos", "mod", "rank"//, "percent" // decpos это 1,e.+ 0
+            "yroot", "logbase", "decpos", "mod", "rank"// decpos это 1,e.+ 0
         };
 
         static public bool isFunc(string s)
@@ -39,7 +38,6 @@ namespace CalculatorForm
             if (FuncNames.Any(s.Contains))
                 return true;
             return false;
-            //return FuncNames.Contains(s);
         }
 
         static public bool isFuncOper(string s)
@@ -47,7 +45,6 @@ namespace CalculatorForm
             if (FuncOperNames.Any(s.Contains))
                 return true;
             return false;
-            //return FuncNames.Contains(s);
         }
 
         static public double CalculateFuncOper(string s, double a, double b)
@@ -60,7 +57,6 @@ namespace CalculatorForm
                 case "decpos": result = a * Math.Pow(10, b); break;
                 case "mod": result = a % b; break;
                 case "rank": result = Math.Pow(a, b); break;
-                    //case "percent": result = a % b; break; проценты как отдельная функция должна быть percent(a, b, oper)
             }
             return result;
         }
