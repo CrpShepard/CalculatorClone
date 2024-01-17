@@ -20,6 +20,7 @@ namespace CalculatorForm
         History historyForm = new History();
 
         bool secondFunc;
+        bool rad;
 
         public Form1()
         {
@@ -32,6 +33,7 @@ namespace CalculatorForm
             listBoxGlobal = listBox1;
             History.stateMonitor = stateMonitor;
             secondFunc = false;
+            rad = true;
         }
 
         //string oldExpression = string.Empty;
@@ -129,6 +131,24 @@ namespace CalculatorForm
                         str = str.Insert(lastNumberIndex + 1, ".");
                         stateMonitor.MonitoredString = str;
                     }
+                }
+
+                if (str.EndsWith("%"))
+                {
+                    str = str.Remove(str.Length - 2);
+
+                    string[] s = str.Split(' ');
+
+                    if (s[s.Length - 2] == "+" || s[s.Length - 2] == "-")
+                    {
+                        s[s.Length - 1] = (Double.Parse(s[s.Length - 3]) * Double.Parse(s[s.Length - 1]) / 100).ToString();
+                    }
+                    else if (s[s.Length - 2] == "*" || s[s.Length - 2] == "/")
+                    {
+                        s[s.Length - 1] = (Double.Parse(s[s.Length - 1]) / 100).ToString();
+                    }
+
+                    stateMonitor.MonitoredString = string.Join(" ", s);
                 }
 
                 else if (str[str.Length - 2] == ' ' && str[str.Length - 1] == ' ')
@@ -230,7 +250,10 @@ namespace CalculatorForm
 
         private void button29_Click(object sender, EventArgs e) // кнопка ^ | x^y
         {
-            stateMonitor.MonitoredString += "^ ";
+            if (!secondFunc)
+                stateMonitor.MonitoredString += "rank ";
+            else
+                stateMonitor.MonitoredString += "yroot ";
         }
 
         private void button41_Click(object sender, EventArgs e) // . дробь
@@ -243,7 +266,7 @@ namespace CalculatorForm
             stateMonitor.MonitoredString += "=";
 
             //label2.Text = RPN.Calculate(stateMonitor.MonitoredString).ToString();
-            label2.Text = Calculate.getResult(stateMonitor.MonitoredString.Remove(stateMonitor.MonitoredString.Length - 1)).ToString();
+            label2.Text = Calculate.getResult(stateMonitor.MonitoredString.Remove(stateMonitor.MonitoredString.Length - 1), rad).ToString();
 
             if (label4.Text.Contains("="))
             {
@@ -251,12 +274,18 @@ namespace CalculatorForm
                 {
                     if (item.ToString()[0] == label4.Text[0])
                     {
-                        listBox1.Items[listBox1.Items.IndexOf(item)] = label4.Text + label2.Text;
+                        if (radioButton1.Checked)
+                            listBox1.Items[listBox1.Items.IndexOf(item)] = label4.Text + label2.Text;
+                        if (radioButton2.Checked)
+                            listBox1.Items[listBox1.Items.IndexOf(item)] = label4.Text + stateMonitor.MonitoredString.Remove(stateMonitor.MonitoredString.Length - 1);
                         listBoxGlobal = listBox1;
                         return;
                     }
                 }
-                listBox1.Items.Add(label4.Text + label2.Text);
+                if (radioButton1.Checked)
+                    listBox1.Items.Add(label4.Text + label2.Text);
+                if (radioButton2.Checked)
+                    listBox1.Items.Add(label4.Text + stateMonitor.MonitoredString.Remove(stateMonitor.MonitoredString.Length - 1));
                 listBoxGlobal = listBox1;
             }
             else
@@ -607,7 +636,7 @@ namespace CalculatorForm
             if (!secondFunc)
                 stateMonitor.MonitoredString += "log";
             else
-                stateMonitor.MonitoredString += "logbase";
+                stateMonitor.MonitoredString += "logbase ";
         }
 
         private void button44_Click(object sender, EventArgs e) // ln
@@ -648,6 +677,179 @@ namespace CalculatorForm
         private void button15_Click(object sender, EventArgs e) // mod
         {
             stateMonitor.MonitoredString += "mod ";
+        }
+
+
+        // % процент
+        private void button3_Click(object sender, EventArgs e)
+        {
+            stateMonitor.MonitoredString += "%";
+        }
+
+        // тригонометрия
+        private void sinToolStripMenuItem_Click(object sender, EventArgs e) // sin
+        {
+            stateMonitor.MonitoredString += "sin";
+        }
+
+        private void button2_Click(object sender, EventArgs e) // DEG | RAD
+        {
+            if (rad) 
+            {
+                button2.Text = "DEG";
+                rad = !rad;
+            }
+            else
+            {
+                button2.Text = "RAD";
+                rad = !rad;
+            }
+        }
+
+        private void cosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            stateMonitor.MonitoredString += "cos";
+        }
+
+        private void tanToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            stateMonitor.MonitoredString += "tan";
+        }
+
+        private void secToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            stateMonitor.MonitoredString += "sec";
+        }
+
+        private void cscToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            stateMonitor.MonitoredString += "csc";
+        }
+
+        private void cotToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            stateMonitor.MonitoredString += "cot";
+        }
+
+        private void asinToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            stateMonitor.MonitoredString += "asin";
+        }
+
+        private void acosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            stateMonitor.MonitoredString += "acos";
+        }
+
+        private void atanToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            stateMonitor.MonitoredString += "atan";
+        }
+
+        private void asecToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            stateMonitor.MonitoredString += "asec";
+        }
+
+        private void acscToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            stateMonitor.MonitoredString += "acsc";
+        }
+
+        private void acotToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            stateMonitor.MonitoredString += "acot";
+        }
+
+        private void sinhToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            stateMonitor.MonitoredString += "sinh";
+        }
+
+        private void coshToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            stateMonitor.MonitoredString += "cosh";
+        }
+
+        private void tanhToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            stateMonitor.MonitoredString += "tanh";
+        }
+
+        private void sechToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            stateMonitor.MonitoredString += "sech";
+        }
+
+        private void cschToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            stateMonitor.MonitoredString += "csch";
+        }
+
+        private void cothToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            stateMonitor.MonitoredString += "coth";
+        }
+
+        private void asinhToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            stateMonitor.MonitoredString += "asinh";
+        }
+
+        private void acoshToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            stateMonitor.MonitoredString += "acosh";
+        }
+
+        private void atanhToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            stateMonitor.MonitoredString += "atanh";
+        }
+
+        private void asechToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            stateMonitor.MonitoredString += "asech";
+        }
+
+        private void acschToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            stateMonitor.MonitoredString += "acsch";
+        }
+
+        private void acothToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            stateMonitor.MonitoredString += "acoth";
+        }
+
+        private void xToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            stateMonitor.MonitoredString += "abs";
+        }
+
+        private void xToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            stateMonitor.MonitoredString += "ceil";
+        }
+
+        private void xToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            stateMonitor.MonitoredString += "floor";
+        }
+
+        private void randToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Random rnd = new Random();
+            stateMonitor.MonitoredString += rnd.NextDouble().ToString() + " ";
+        }
+
+        private void dmsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            stateMonitor.MonitoredString += "dms";
+        }
+
+        private void degToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            stateMonitor.MonitoredString += "degrees";
         }
     }
 }

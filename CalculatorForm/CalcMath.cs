@@ -21,9 +21,17 @@ namespace CalculatorForm
             "ten", "two", "onediv"
         };
 
+        static public string[] TrigNames =
+        {
+            "sin", "cos", "tan", "sec", "csc", "cot",
+            "asin", "acos", "atan", "asec", "acsc", "acot", // asin => sin^(-1)
+            "sinh", "cosh", "tanh", "sech", "csch", "coth",
+            "asinh", "acosh", "atanh", "asech", "acsch", "acoth"
+        };
+
         static public string[] FuncOperNames =
         {
-            "yroot", "logbase", "decpos", "mod"//, "percent" // decpos это 1,e.+ 0
+            "yroot", "logbase", "decpos", "mod", "rank"//, "percent" // decpos это 1,e.+ 0
         };
 
         static public bool isFunc(string s)
@@ -42,21 +50,6 @@ namespace CalculatorForm
             //return FuncNames.Contains(s);
         }
 
-        static public double Percent(string s, double a, double b)
-        {
-            double result = 0;
-            switch (s)
-            {
-                case "+": result = a + a * b / 100; break;
-                case "-": result = a - a * b / 100; break;
-                case "*": result = a * b / 100; break;
-                case "/": result = a / b / 100; break;
-
-                default: result = 0; break;
-            }
-            return result;
-        }
-
         static public double CalculateFuncOper(string s, double a, double b)
         {
             double result = 0;
@@ -66,7 +59,8 @@ namespace CalculatorForm
                 case "logbase": result = Math.Log(a, b); break;
                 case "decpos": result = a * Math.Pow(10, b); break;
                 case "mod": result = a % b; break;
-                //case "percent": result = a % b; break; проценты как отдельная функция должна быть percent(a, b, oper)
+                case "rank": result = Math.Pow(a, b); break;
+                    //case "percent": result = a % b; break; проценты как отдельная функция должна быть percent(a, b, oper)
             }
             return result;
         }

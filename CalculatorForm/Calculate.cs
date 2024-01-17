@@ -10,103 +10,7 @@ namespace CalculatorForm
 {
     public class Calculate
     {
-        string FuncRecursion(string input, int index)
-        {
-            string[] s = input.Split(' ');
-            string newInput = "";
-
-            Stack<string> funcStack = new Stack<string>();
-            Stack<string> funcOperStack = new Stack<string>();
-            List<String> subExp = new List<string>();
-            int subExpCount = 0;
-            List<int> parenthesisCount = new List<int>();
-
-            for (int i = index; i < s.Length; i++)
-            {
-                if (CalcMath.FuncNames.Any(name => s[i].Contains(name)) && s[i].Length > 1)
-                {
-                    if (subExpCount == 0)
-                    {
-                        subExpCount++;
-                        funcStack.Push(s[i].Split('(')[0]);
-                        subExp.Add("");
-                        parenthesisCount.Add(0);
-                    }
-                    else
-                        subExp[subExpCount - 1] += FuncRecursion(input, i);
-
-                    //ready = false;
-                }
-
-                if (subExpCount == 0)
-                {
-                    //break;
-                    //newInput += s[i] + " ";
-                }
-
-                if (subExpCount > 0)
-                {
-                    if (double.TryParse(s[i], out _) || new string[] { "+", "-", "*", "/", "." }.Any(oper => s[i].Contains(oper)))
-                    {
-                        subExp[subExpCount - 1] += s[i] + " ";
-                    }
-
-                    if (s[i] == "(")
-                    {
-                        parenthesisCount[subExpCount - 1]++;
-                        subExp[subExpCount - 1] += s[i] + " ";
-                    }
-
-                    if (s[i] == ")")
-                    {
-                        if (parenthesisCount[subExpCount - 1] > 0)
-                        {
-                            parenthesisCount[subExpCount - 1]--;
-                            subExp[subExpCount - 1] += s[i] + " ";
-
-                        }
-                        else
-                        {
-                            subExp[subExpCount - 1] = new Expression(subExp[subExpCount - 1]).Evaluate().ToString();
-                            subExp[subExpCount - 1] = CalcMath.Calculate(funcStack.Pop(), Convert.ToDouble(subExp[subExpCount - 1])).ToString();
-                            subExpCount--;
-
-                            if (subExpCount > 0)
-                            {
-                                subExp[subExpCount - 1] += subExp[subExpCount];
-                            }
-
-                            else if (subExpCount == 0)
-                            {
-                                newInput += subExp[0] + " ";
-                                subExp.Clear();
-                            }
-
-                        }
-
-                    }
-                }
-
-                if (!double.TryParse(s[i], out _) && !new string[] { "+", "-", "*", "/", "(", ")" }.Any(oper => s[i].Contains(oper)) && s[i].Length == 1)
-                {
-                    foreach (var item in Form1.listBoxGlobal.Items)
-                    {
-                        if (item.ToString()[0] == Convert.ToChar(s[i]))
-                        {
-                            //ready = false;
-
-                            newInput += item.ToString().Remove(0, 2) + " ";
-                        }
-                    }
-                }
-
-
-            }
-
-            return newInput;
-        }
-
-        static public double getResult(string input)
+        static public double getResult(string input, bool rad)
         {
             string[] s = input.Split(' ');
             string newInput = "";
@@ -125,7 +29,7 @@ namespace CalculatorForm
 
                 for (int i = 0; i < s.Length; i++)
                 {
-                    if (CalcMath.FuncNames.Any(name => s[i].Contains(name)) && s[i].Length > 1)
+                    if (CalcMath.FuncNames.Any(name => s[i].Contains(name)) && s[i].Length > 1 && s[i].Contains("("))
                     {
                         subExpCount++;
                         funcStack.Push(s[i].Split('(')[0]);
@@ -142,7 +46,7 @@ namespace CalculatorForm
 
                     if (subExpCount > 0)
                     {
-                        if (double.TryParse(s[i], out _) || new string[] { "+", "-", "*", "/", "." }.Any(oper => s[i].Contains(oper)))
+                        if (double.TryParse(s[i], out _) || new string[] { "+", "-", "*", "/", "." }.Any(oper => s[i].Equals(oper)) || CalcMath.FuncOperNames.Any(name => s[i].Equals(name)))
                         {
                             subExp[subExpCount - 1] += s[i] + " ";
                         }
@@ -163,7 +67,54 @@ namespace CalculatorForm
                             }
                             else
                             {
+                                bool operReady = true;
+                                while (true)
+                                {
+                                    operReady = true;
+                                    if (CalcMath.FuncOperNames.Any(name => subExp[subExpCount - 1].Split(' ').Any(cur => cur.Equals(name))) && subExp[subExpCount - 1].Length > 1)
+                                    {
+                                        operReady = false;
+
+                                        string[] ss = subExp[subExpCount - 1].Split(' ');
+                                        int index = 0;
+
+                                        while (!CalcMath.isFuncOper(ss[index]))
+                                        {
+                                            index++;
+                                        }
+                                        int l_index = index - 1;
+                                        int r_index = index + 1;
+
+                                        var resultOper = OperRecursion(subExp[subExpCount - 1], index);
+
+                                        r_index = resultOper.Item2 + 1;
+
+                                        string tempS = "";
+                                        
+                                        for (int j = 0; j < ss.Length; j++)
+                                        {
+                                            if (j < l_index || j > r_index)
+                                            {
+                                                tempS += ss[j];
+                                            }
+                                            if (j == index)
+                                            {
+                                                tempS += resultOper.Item1 + " ";
+                                            }
+                                        }
+
+
+                                        subExp[subExpCount - 1] = tempS;
+                                    }
+                                    if (operReady) break;
+                                }
+                                
                                 subExp[subExpCount - 1] = new Expression(subExp[subExpCount - 1]).Evaluate().ToString();
+
+                                if (CalcMath.TrigNames.Any(name => funcStack.Peek().Contains(name)) && !rad) 
+                                {
+                                    subExp[subExpCount - 1] = (Math.PI * Double.Parse(subExp[subExpCount - 1]) / 180.0).ToString();
+                                }
                                 subExp[subExpCount - 1] = CalcMath.Calculate(funcStack.Pop(), Convert.ToDouble(subExp[subExpCount - 1])).ToString();
                                 subExpCount--;
 
@@ -183,7 +134,7 @@ namespace CalculatorForm
                         }
                     }
 
-                    if (!double.TryParse(s[i], out _) && !new string[] { "+", "-", "*", "/", "(", ")" }.Any(oper => s[i].Contains(oper)) && s[i].Length == 1)
+                    if (!double.TryParse(s[i], out _) && !new string[] { "+", "-", "*", "/", "(", ")" }.Any(oper => s[i].Equals(oper)) && s[i].Length == 1)
                     {
                         foreach (var item in Form1.listBoxGlobal.Items)
                         {
@@ -219,9 +170,10 @@ namespace CalculatorForm
 
             newInput = newInput.Replace(",", ".");
 
-            (string, int) OperRecursion(int index)
+            (string, int) OperRecursion(string operInput, int index)
             {
-                string[] ss = newInput.Split(' ');
+                //string[] ss = newInput.Split(' ');
+                string[] ss = operInput.Split(' ');
 
                 Stack<string> funcOperStackFlat = new Stack<string>();
                 //string subExp = "";
@@ -310,7 +262,7 @@ namespace CalculatorForm
                     {
                         if (CalcMath.isFuncOper(ss[r_index]))
                         {
-                            var localResult = OperRecursion(r_index);
+                            var localResult = OperRecursion(operInput, r_index);
 
                             string[] tempS = subExpOper[subExpCountOper - 1].Split(' ');
                             tempS[tempS.Length - 1] = localResult.Item1;
@@ -372,7 +324,7 @@ namespace CalculatorForm
 
             }
 
-            if (CalcMath.FuncOperNames.Any(name => newInput.Contains(name)) && newInput.Length > 1)
+            if (CalcMath.FuncOperNames.Any(name => newInput.Split(' ').Any(oper => oper.Equals(name))) && newInput.Length > 1)
             {
                 string[] ss = newInput.Split(' ');
 
@@ -463,7 +415,7 @@ namespace CalculatorForm
                     {
                         if (CalcMath.isFuncOper(ss[r_index]))
                         {
-                            var localResult = OperRecursion(r_index);
+                            var localResult = OperRecursion(newInput, r_index);
 
                             string[] tempS = subExpOper[subExpCountOper - 1].Split(' ');
                             if (tempS.Length > 1)
@@ -534,6 +486,7 @@ namespace CalculatorForm
                 }
                 newInput = fixedInput;
             }
+            newInput = newInput.Replace(",", ".");
 
             var expression = new Expression(newInput);
 

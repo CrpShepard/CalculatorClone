@@ -67,15 +67,13 @@
             this.button10 = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.ndToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sinToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.hypToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.secToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cscToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cotToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.xToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.xToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -90,6 +88,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
@@ -128,7 +127,28 @@
             this.label5 = new System.Windows.Forms.Label();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.asinToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.acosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.atanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.asecToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.acscToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.acotToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.sinhToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.coshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tanhToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sechToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cschToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cothToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.asinhToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.acoshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.atanhToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.asechToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.acschToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.acothToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -648,71 +668,83 @@
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ndToolStripMenuItem,
             this.sinToolStripMenuItem,
             this.cosToolStripMenuItem,
             this.tanToolStripMenuItem,
-            this.toolStripSeparator1,
-            this.hypToolStripMenuItem,
             this.secToolStripMenuItem,
             this.cscToolStripMenuItem,
-            this.cotToolStripMenuItem});
+            this.cotToolStripMenuItem,
+            this.toolStripSeparator3,
+            this.asinToolStripMenuItem,
+            this.acosToolStripMenuItem,
+            this.atanToolStripMenuItem,
+            this.asecToolStripMenuItem,
+            this.acscToolStripMenuItem,
+            this.acotToolStripMenuItem,
+            this.toolStripSeparator1,
+            this.sinhToolStripMenuItem,
+            this.coshToolStripMenuItem,
+            this.tanhToolStripMenuItem,
+            this.sechToolStripMenuItem,
+            this.cschToolStripMenuItem,
+            this.cothToolStripMenuItem,
+            this.toolStripSeparator4,
+            this.asinhToolStripMenuItem,
+            this.acoshToolStripMenuItem,
+            this.atanhToolStripMenuItem,
+            this.asechToolStripMenuItem,
+            this.acschToolStripMenuItem,
+            this.acothToolStripMenuItem});
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             this.toolStripMenuItem1.Size = new System.Drawing.Size(117, 20);
             this.toolStripMenuItem1.Text = "Тригонометрия ∨";
             // 
-            // ndToolStripMenuItem
-            // 
-            this.ndToolStripMenuItem.Name = "ndToolStripMenuItem";
-            this.ndToolStripMenuItem.Size = new System.Drawing.Size(94, 22);
-            this.ndToolStripMenuItem.Text = "2nd";
-            // 
             // sinToolStripMenuItem
             // 
             this.sinToolStripMenuItem.Name = "sinToolStripMenuItem";
-            this.sinToolStripMenuItem.Size = new System.Drawing.Size(94, 22);
+            this.sinToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.sinToolStripMenuItem.Text = "sin";
+            this.sinToolStripMenuItem.Click += new System.EventHandler(this.sinToolStripMenuItem_Click);
             // 
             // cosToolStripMenuItem
             // 
             this.cosToolStripMenuItem.Name = "cosToolStripMenuItem";
-            this.cosToolStripMenuItem.Size = new System.Drawing.Size(94, 22);
+            this.cosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.cosToolStripMenuItem.Text = "cos";
+            this.cosToolStripMenuItem.Click += new System.EventHandler(this.cosToolStripMenuItem_Click);
             // 
             // tanToolStripMenuItem
             // 
             this.tanToolStripMenuItem.Name = "tanToolStripMenuItem";
-            this.tanToolStripMenuItem.Size = new System.Drawing.Size(94, 22);
+            this.tanToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.tanToolStripMenuItem.Text = "tan";
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(91, 6);
-            // 
-            // hypToolStripMenuItem
-            // 
-            this.hypToolStripMenuItem.Name = "hypToolStripMenuItem";
-            this.hypToolStripMenuItem.Size = new System.Drawing.Size(94, 22);
-            this.hypToolStripMenuItem.Text = "hyp";
+            this.tanToolStripMenuItem.Click += new System.EventHandler(this.tanToolStripMenuItem_Click);
             // 
             // secToolStripMenuItem
             // 
             this.secToolStripMenuItem.Name = "secToolStripMenuItem";
-            this.secToolStripMenuItem.Size = new System.Drawing.Size(94, 22);
+            this.secToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.secToolStripMenuItem.Text = "sec";
+            this.secToolStripMenuItem.Click += new System.EventHandler(this.secToolStripMenuItem_Click);
             // 
             // cscToolStripMenuItem
             // 
             this.cscToolStripMenuItem.Name = "cscToolStripMenuItem";
-            this.cscToolStripMenuItem.Size = new System.Drawing.Size(94, 22);
+            this.cscToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.cscToolStripMenuItem.Text = "csc";
+            this.cscToolStripMenuItem.Click += new System.EventHandler(this.cscToolStripMenuItem_Click);
             // 
             // cotToolStripMenuItem
             // 
             this.cotToolStripMenuItem.Name = "cotToolStripMenuItem";
-            this.cotToolStripMenuItem.Size = new System.Drawing.Size(94, 22);
+            this.cotToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.cotToolStripMenuItem.Text = "cot";
+            this.cotToolStripMenuItem.Click += new System.EventHandler(this.cotToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(177, 6);
             // 
             // toolStripMenuItem2
             // 
@@ -731,43 +763,49 @@
             // xToolStripMenuItem
             // 
             this.xToolStripMenuItem.Name = "xToolStripMenuItem";
-            this.xToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
+            this.xToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.xToolStripMenuItem.Text = "|x|";
+            this.xToolStripMenuItem.Click += new System.EventHandler(this.xToolStripMenuItem_Click);
             // 
             // xToolStripMenuItem1
             // 
             this.xToolStripMenuItem1.Name = "xToolStripMenuItem1";
-            this.xToolStripMenuItem1.Size = new System.Drawing.Size(110, 22);
+            this.xToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.xToolStripMenuItem1.Text = "|_x_|";
+            this.xToolStripMenuItem1.Click += new System.EventHandler(this.xToolStripMenuItem1_Click);
             // 
             // xToolStripMenuItem2
             // 
             this.xToolStripMenuItem2.Name = "xToolStripMenuItem2";
-            this.xToolStripMenuItem2.Size = new System.Drawing.Size(110, 22);
+            this.xToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
             this.xToolStripMenuItem2.Text = "|-x-|";
+            this.xToolStripMenuItem2.Click += new System.EventHandler(this.xToolStripMenuItem2_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(107, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(177, 6);
             // 
             // randToolStripMenuItem
             // 
             this.randToolStripMenuItem.Name = "randToolStripMenuItem";
-            this.randToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
+            this.randToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.randToolStripMenuItem.Text = "rand";
+            this.randToolStripMenuItem.Click += new System.EventHandler(this.randToolStripMenuItem_Click);
             // 
             // dmsToolStripMenuItem
             // 
             this.dmsToolStripMenuItem.Name = "dmsToolStripMenuItem";
-            this.dmsToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
+            this.dmsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.dmsToolStripMenuItem.Text = "->dms";
+            this.dmsToolStripMenuItem.Click += new System.EventHandler(this.dmsToolStripMenuItem_Click);
             // 
             // degToolStripMenuItem
             // 
             this.degToolStripMenuItem.Name = "degToolStripMenuItem";
-            this.degToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
+            this.degToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.degToolStripMenuItem.Text = "->deg";
+            this.degToolStripMenuItem.Click += new System.EventHandler(this.degToolStripMenuItem_Click);
             // 
             // panel2
             // 
@@ -822,6 +860,8 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.radioButton2);
+            this.panel3.Controls.Add(this.radioButton1);
             this.panel3.Controls.Add(this.button3);
             this.panel3.Controls.Add(this.button4);
             this.panel3.Controls.Add(this.checkBox2);
@@ -831,6 +871,20 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(399, 73);
             this.panel3.TabIndex = 2;
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button3.Location = new System.Drawing.Point(69, 3);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(60, 30);
+            this.button3.TabIndex = 69;
+            this.button3.Text = "%";
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button4
             // 
@@ -848,7 +902,7 @@
             // checkBox2
             // 
             this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(203, 43);
+            this.checkBox2.Location = new System.Drawing.Point(69, 39);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(189, 17);
             this.checkBox2.TabIndex = 67;
@@ -858,7 +912,7 @@
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(203, 11);
+            this.checkBox1.Location = new System.Drawing.Point(135, 7);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(160, 17);
             this.checkBox1.TabIndex = 66;
@@ -874,8 +928,9 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(60, 30);
             this.button2.TabIndex = 0;
-            this.button2.Text = "DEG";
+            this.button2.Text = "RAD";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button45
             // 
@@ -1326,18 +1381,163 @@
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
-            // button3
+            // asinToolStripMenuItem
             // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button3.Location = new System.Drawing.Point(69, 3);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(60, 30);
-            this.button3.TabIndex = 69;
-            this.button3.Text = "%";
-            this.button3.UseVisualStyleBackColor = false;
+            this.asinToolStripMenuItem.Name = "asinToolStripMenuItem";
+            this.asinToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.asinToolStripMenuItem.Text = "asin";
+            this.asinToolStripMenuItem.Click += new System.EventHandler(this.asinToolStripMenuItem_Click);
+            // 
+            // acosToolStripMenuItem
+            // 
+            this.acosToolStripMenuItem.Name = "acosToolStripMenuItem";
+            this.acosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.acosToolStripMenuItem.Text = "acos";
+            this.acosToolStripMenuItem.Click += new System.EventHandler(this.acosToolStripMenuItem_Click);
+            // 
+            // atanToolStripMenuItem
+            // 
+            this.atanToolStripMenuItem.Name = "atanToolStripMenuItem";
+            this.atanToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.atanToolStripMenuItem.Text = "atan";
+            this.atanToolStripMenuItem.Click += new System.EventHandler(this.atanToolStripMenuItem_Click);
+            // 
+            // asecToolStripMenuItem
+            // 
+            this.asecToolStripMenuItem.Name = "asecToolStripMenuItem";
+            this.asecToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.asecToolStripMenuItem.Text = "asec";
+            this.asecToolStripMenuItem.Click += new System.EventHandler(this.asecToolStripMenuItem_Click);
+            // 
+            // acscToolStripMenuItem
+            // 
+            this.acscToolStripMenuItem.Name = "acscToolStripMenuItem";
+            this.acscToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.acscToolStripMenuItem.Text = "acsc";
+            this.acscToolStripMenuItem.Click += new System.EventHandler(this.acscToolStripMenuItem_Click);
+            // 
+            // acotToolStripMenuItem
+            // 
+            this.acotToolStripMenuItem.Name = "acotToolStripMenuItem";
+            this.acotToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.acotToolStripMenuItem.Text = "acot";
+            this.acotToolStripMenuItem.Click += new System.EventHandler(this.acotToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            // 
+            // sinhToolStripMenuItem
+            // 
+            this.sinhToolStripMenuItem.Name = "sinhToolStripMenuItem";
+            this.sinhToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sinhToolStripMenuItem.Text = "sinh";
+            this.sinhToolStripMenuItem.Click += new System.EventHandler(this.sinhToolStripMenuItem_Click);
+            // 
+            // coshToolStripMenuItem
+            // 
+            this.coshToolStripMenuItem.Name = "coshToolStripMenuItem";
+            this.coshToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.coshToolStripMenuItem.Text = "cosh";
+            this.coshToolStripMenuItem.Click += new System.EventHandler(this.coshToolStripMenuItem_Click);
+            // 
+            // tanhToolStripMenuItem
+            // 
+            this.tanhToolStripMenuItem.Name = "tanhToolStripMenuItem";
+            this.tanhToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.tanhToolStripMenuItem.Text = "tanh";
+            this.tanhToolStripMenuItem.Click += new System.EventHandler(this.tanhToolStripMenuItem_Click);
+            // 
+            // sechToolStripMenuItem
+            // 
+            this.sechToolStripMenuItem.Name = "sechToolStripMenuItem";
+            this.sechToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sechToolStripMenuItem.Text = "sech";
+            this.sechToolStripMenuItem.Click += new System.EventHandler(this.sechToolStripMenuItem_Click);
+            // 
+            // cschToolStripMenuItem
+            // 
+            this.cschToolStripMenuItem.Name = "cschToolStripMenuItem";
+            this.cschToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cschToolStripMenuItem.Text = "csch";
+            this.cschToolStripMenuItem.Click += new System.EventHandler(this.cschToolStripMenuItem_Click);
+            // 
+            // cothToolStripMenuItem
+            // 
+            this.cothToolStripMenuItem.Name = "cothToolStripMenuItem";
+            this.cothToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cothToolStripMenuItem.Text = "coth";
+            this.cothToolStripMenuItem.Click += new System.EventHandler(this.cothToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(177, 6);
+            // 
+            // asinhToolStripMenuItem
+            // 
+            this.asinhToolStripMenuItem.Name = "asinhToolStripMenuItem";
+            this.asinhToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.asinhToolStripMenuItem.Text = "asinh";
+            this.asinhToolStripMenuItem.Click += new System.EventHandler(this.asinhToolStripMenuItem_Click);
+            // 
+            // acoshToolStripMenuItem
+            // 
+            this.acoshToolStripMenuItem.Name = "acoshToolStripMenuItem";
+            this.acoshToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.acoshToolStripMenuItem.Text = "acosh";
+            this.acoshToolStripMenuItem.Click += new System.EventHandler(this.acoshToolStripMenuItem_Click);
+            // 
+            // atanhToolStripMenuItem
+            // 
+            this.atanhToolStripMenuItem.Name = "atanhToolStripMenuItem";
+            this.atanhToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.atanhToolStripMenuItem.Text = "atanh";
+            this.atanhToolStripMenuItem.Click += new System.EventHandler(this.atanhToolStripMenuItem_Click);
+            // 
+            // asechToolStripMenuItem
+            // 
+            this.asechToolStripMenuItem.Name = "asechToolStripMenuItem";
+            this.asechToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.asechToolStripMenuItem.Text = "asech";
+            this.asechToolStripMenuItem.Click += new System.EventHandler(this.asechToolStripMenuItem_Click);
+            // 
+            // acschToolStripMenuItem
+            // 
+            this.acschToolStripMenuItem.Name = "acschToolStripMenuItem";
+            this.acschToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.acschToolStripMenuItem.Text = "acsch";
+            this.acschToolStripMenuItem.Click += new System.EventHandler(this.acschToolStripMenuItem_Click);
+            // 
+            // acothToolStripMenuItem
+            // 
+            this.acothToolStripMenuItem.Name = "acothToolStripMenuItem";
+            this.acothToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.acothToolStripMenuItem.Text = "acoth";
+            this.acothToolStripMenuItem.Click += new System.EventHandler(this.acothToolStripMenuItem_Click);
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Checked = true;
+            this.radioButton1.Location = new System.Drawing.Point(273, 30);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(94, 17);
+            this.radioButton1.TabIndex = 70;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "Как значение";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Location = new System.Drawing.Point(273, 49);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(92, 17);
+            this.radioButton2.TabIndex = 71;
+            this.radioButton2.Text = "Как формула";
+            this.radioButton2.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -1445,12 +1645,9 @@
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem ndToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sinToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tanToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripMenuItem hypToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem secToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cscToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cotToolStripMenuItem;
@@ -1501,6 +1698,29 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripMenuItem asinToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem acosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem atanToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem asecToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem acscToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem acotToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem sinhToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem coshToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tanhToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sechToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cschToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cothToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
+        private System.Windows.Forms.ToolStripMenuItem asinhToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem acoshToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem atanhToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem asechToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem acschToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem acothToolStripMenuItem;
+        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton radioButton2;
     }
 }
 
